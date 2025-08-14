@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/style.css';
-import uploadIcon from '../images/Submit.webp';
+import uploadIcon from '../images/submit.webp';
 import reviewIcon from '../images/expert.webp';
 import paymentIcon from '../images/payment.webp';
 import qcIcon from '../images/review.webp';
