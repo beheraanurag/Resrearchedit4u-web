@@ -1,5 +1,25 @@
 import React, { useState } from "react";
 import "../style/style.css";
+import PDF1 from "../images/Brochure.pdf";
+import PDF2 from "../images/Brochure.pdf";
+import PDF3 from "../images/Brochure.pdf";
+import PDF4 from "../images/Brochure.pdf";
+import PDF6 from "../images/Brochure.pdf";
+import PDF7 from "../images/Brochure.pdf";
+import PDF8 from "../images/Brochure.pdf";
+import PDF9 from "../images/Brochure.pdf";
+import PDF10 from "../images/Brochure.pdf";
+import PDF11 from "../images/Brochure.pdf";
+import PDF12 from "../images/Brochure.pdf";
+import PDF13 from "../images/Brochure.pdf";
+import PDF14 from "../images/Brochure.pdf";
+import PDF15 from "../images/Brochure.pdf";
+import PDF16 from "../images/Brochure.pdf";
+import PDF17 from "../images/Brochure.pdf";
+import PDF18 from "../images/Brochure.pdf";
+import PDF19 from "../images/Brochure.pdf";
+import PDF20 from "../images/Brochure.pdf";
+import PDF5 from "../images/Brochure.pdf";
 
 const servicesData = {
   "Research Planning": [
@@ -8,24 +28,32 @@ const servicesData = {
       price: "₹2,999",
       features: ["2–3 research topics with title suggestions & rationale", "Problem statement and key research questions", "1-page summary with initial citations"],
       img: "📘",
+      pdfLink: PDF1,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Proposal Support",
       price: "₹4,999",
       features: ["Drafting introduction, objectives, and methodology (up to 2 pages)", "Proper academic structure and citation guidance", "Expert review of proposal outline"],
       img: "📄",
+      pdfLink: PDF2,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Research Design",
       price: "₹4,999",
       features: ["Tool and method recommendations based on research scope", "Sampling techniques and variable mapping", "Conceptual framework outline"],
       img: "⚙️",
+      pdfLink: PDF3,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Ethics & Feasibility ",
       price: "₹3,999",
       features: ["Ethical considerations and viability analysis", "University ethics form review and suggestions", "Timeline and resource feasibility plan"],
       img: "✅",
+      pdfLink: PDF4,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
   ],
   "Data Services": [
@@ -34,24 +62,32 @@ const servicesData = {
       price: "₹6,999",
       features: ["SPSS, R, or Python-based statistical testing (ANOVA, regression, etc.)", "Graphs, tables, and visualization of results", "Interpretation notes for each analysis output"],
       img: "📊",
+      pdfLink: PDF5,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Data Cleaning",
       price: "₹4,999",
       features: ["Removal of outliers, missing values, and errors", "Data transformation and coding for analysis", "Clean and structured datasets (Excel/SPSS/Python)"],
       img: "🔄",
+      pdfLink: PDF6,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "ML Modelling",
       price: "₹7,999",
       features: ["Python/R-based regression, classification, or clustering models", "Data training and accuracy evaluation", "Clear outputs with step-by-step explanation"],
       img: "🤖",
+      pdfLink: PDF7,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Interpretation Help ",
       price: "₹5,999",
       features: ["Clear explanation of statistical findings", "Writing result summaries in academic style", "Analysis Graphical highlights and insights"],
       img: "🧾",
+      pdfLink: PDF8,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
   ],
   "Editorial Support": [
@@ -60,24 +96,32 @@ const servicesData = {
       price: "₹4,999",
       features: ["Logical flow and content restructuring", "Coherence, readability, and sentence refinement", "Detailed suggestions via tracked changes"],
       img: "✍️",
+      pdfLink: PDF9,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Language Polishing",
       price: "₹4,000",
       features: ["Grammar, spelling, and punctuation checks", "Academic tone and vocabulary refinement", "Basic style and clarity adjustments"],
       img: "🖋️",
+      pdfLink: PDF10,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Formatting Help ",
       price: "₹3,999",
       features: ["APA, IEEE, MLA, or journal-specific formats", "Reference and citation alignment", "Table, figure, and margin consistency"],
       img: "📐",
+      pdfLink: PDF11,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "AI + Plagiarism Fix",
       price: "₹2,500",
       features: ["Turnitin report with plagiarism reduction", "AI-generated content rewriting for originality", "Humanized rephrasing with proof certificate"],
       img: "🛡️",
+      pdfLink: PDF12,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
   ],
   "Publication Support": [
@@ -86,24 +130,32 @@ const servicesData = {
       price: "₹5,999",
       features: ["Reviewer-style feedback on manuscript quality", "Suggestions for strengthening research arguments", "Error and compliance checks"],
       img: "📑",
+      pdfLink: PDF13,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Manuscript Editing ",
       price: "₹6,999",
       features: ["Polishing language and structure", "Reference and citation verification", "Final submission-ready formatting"],
       img: "📝",
+      pdfLink: PDF14,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Journal Selection",
       price: "₹4,999",
       features: ["3–5 journal suggestions with scope match", "Avoid predatory publishers", "Submission guidelines overview"],
       img: "📚",
+      pdfLink: PDF15,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Submission Guidance",
       price: "₹5,999",
       features: ["Portal setup and formatting checklist", "Cover letter drafting for editors", "Final compliance review"],
       img: "🚀",
+      pdfLink: PDF16,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
   ],
 
@@ -113,24 +165,32 @@ const servicesData = {
       price: "₹3,999",
       features: ["Registration, synopsis, and viva presentation decks", "Slide structure and university-specific formatting", "Error and compliance checks•	Visual elements like charts and flow diagrams"],
       img: "🎓",
+      pdfLink: PDF17,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Conference Posters  ",
       price: "₹3,999",
       features: ["Professional layouts and color themes", "Content placement and concise formatting", "Print-ready high-resolution files"],
       img: "📝",
+      pdfLink: PDF18,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Oral Conference Slides",
       price: "₹4,999",
       features: ["Content-to-slide structuring", "Visual highlights for data and results", "Optional speaker notes and script"],
       img: "💡 ",
+      pdfLink: PDF19,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
     {
       title: "Visual Enhancements",
       price: "₹2,999",
       features: ["Custom diagrams, flowcharts, and infographics", "Data visualization (graphs/charts)", "Animated or interactive slide elements"],
       img: "🖼️",
+      pdfLink: PDF20,
+      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
     },
   ],
 };
@@ -158,15 +218,23 @@ const Services = () => {
           <div className="card" key={index}>
             <div className="icon">{service.img}</div>
             <h3>{service.title}</h3>
-            <p className="price">Starts at {service.price}</p>
+
             <ul>
               {service.features.map((feat, i) => (
                 <li key={i}>{feat}</li>
               ))}
             </ul>
+            <p className="price">Starts at only {service.price}</p>
+
+
             <div className="btn-group">
-              <button className="book">Book Now</button>
-              <button className="sample">Download Sample </button>
+              <a href={service.bookLink} target="_blank" rel="noopener noreferrer">
+                <button className="book">Book Now</button>
+              </a>
+              <a href={service.pdfLink} download>
+                <button className="sample">Download Sample</button>
+              </a>
+
             </div>
           </div>
         ))}

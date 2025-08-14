@@ -8,6 +8,8 @@ import deliveryIcon from '../images/delivery.webp';
 import AI from '../images/ai.webp';
 import Journal from '../images/journal.webp';
 import Risk from '../images/risk.webp';
+import PDF from "../images/Brochure.pdf";
+import { Link } from 'react-router-dom';
 
 
 const steps = [
@@ -52,7 +54,9 @@ const ProcessSteps = () => {
                     </div>
                 ))}
             </div>
-            <button className="download-btn">Download Now</button>
+            <a href={PDF} download="Brochure.pdf">
+                <button className="download-btn">Download Now</button>
+            </a>
 
             {/* Why Researchers Trust ResearchEdit4U */}
             <section className="trust-section">
@@ -64,7 +68,7 @@ const ProcessSteps = () => {
                         <h3>PhD-Qualified Editors</h3>
                         <p>Native-English editors with PhDs in your field</p>
                         <p>Over 500 editors across Medicine, Engineering, Social Sciences</p>
-                        <a href="#">Learn More &gt;</a>
+                         <Link to="/about">Learn More &gt;</Link>
                     </div>
 
                     <div className="trust-card">
@@ -72,20 +76,20 @@ const ProcessSteps = () => {
                         <h3>SCI/Scopus Journal Success</h3>
                         <p>Expert guidance & formatting for top-indexed journals</p>
                         <p>90%+ acceptance rate; journals include <em>Nature, The Lancet</em></p>
-                        <a href="#">Learn More &gt;</a>
+                         <Link to="/about">Learn More &gt;</Link>
                     </div>
 
                     <div className="trust-card">
                         <div className="trust-icon">⏱️</div>
-                        <h3>Fast Turnaround & Responsiveness</h3>
+                        <h3>Quick Response</h3>
                         <p>24-hr AI/plagiarism checks, 72-hr standard delivery</p>
                         <p>Avg. turnaround: 48 hrs; 4.8/5 rating on customer service</p>
-                        <a href="#">Learn More &gt;</a>
+                        <Link to="/about">Learn More &gt;</Link>
                     </div>
                 </div>
 
                 <div className="trust-stats">
-                    20,000+ researchers helped &bull; 1,000+ papers published &bull; 95% satisfaction rate
+                    4051+ researchers helped &bull; 200+ papers published &bull; 95% satisfaction rate
                 </div>
             </section>
 
@@ -111,7 +115,7 @@ const ProcessSteps = () => {
 
                     <div class="offer-card">
                         <img src={Journal} alt="Journal Match Pro" />
-                        <h3>Journal Match Pro ₹2000</h3>
+                        <h3>Journal Match Pro <br></br> ₹2000</h3>
                         <p>4 Scopus/SCI Journals + Desk Rejection Score</p>
                         <button>Get Match Re</button>
                     </div>

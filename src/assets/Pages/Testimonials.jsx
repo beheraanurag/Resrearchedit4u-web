@@ -7,41 +7,47 @@ import USER from "../images/user.webp"
 
 const testimonials = [
   {
-    name: "Ronald E. Ncube, PhD Scholar in HRM",
+    name: "Ronald E. Ncube, PhD Scholar (HRM)",
     role: "Management & Social Sciences",
-    company: "Turnitin AI + Plagiarism Rewrite",
-    message: "My Turnitin AI score was 38%, despite original content and heavy paraphrasing. Their team didn’t just rewrite—they humanized each paragraph while keeping my voice intact. The similarity score dropped to 7%, and the AI flag vanished. Their support saved an entire thesis chapter from potential rejection and academic issues.",
-    image: USER
+    company: "AI Rewrite & Plagiarism Support",
+    message:
+      "I submitted content with a 38% AI similarity score. Their expert rewriting made it human-like, reducing it to just 7% without losing my voice. This service helped me avoid rejection and maintain academic integrity. Highly recommended for thesis rewriting.",
+    image: USER,
   },
   {
     name: "Ms. Chen Lu, MSc Student",
     role: "Environmental Engineering",
-    company: "Blue Ocean Tech",
-    message: "My supervisor criticized my figures for lacking scientific depth. I used their graphical abstract and figure redesign service. They followed Elsevier's specifications precisely. The new visuals were clear, professional, and impactful. The editor even praised them in the acceptance email, which boosted my confidence and improved the publication outcome.",
-    image: USER
+    company: "Graphical Abstract & Figure Design",
+    message:
+      "I needed help with visuals for my journal. They redesigned my figures following Elsevier guidelines. The new version looked sharp, professional, and clear. My professor appreciated the visuals, and the editor mentioned the quality in their review email. Very happy with the result.",
+    image: USER,
   },
   {
-    name: "Dr. Amita V. Pillai, Assistant Professor of Microbiology, India",
-    role: "Life Sciences",
-    company: "Language Editing + Journal Submission.",
-    message: "I faced repeated rejections from mid-tier journals, often with vague feedback like lack of clarity or not aligned with journal style, despite strong data. After using their PhD-level English editing and submission support, I received a polished, submission-ready version along with a clear formatting checklist that improved my chances.",
-    image: USER
+    name: "Dr. Amita V. Pillai, Assistant Professor",
+    role: "Life Sciences & Microbiology",
+    company: "Editing & Journal Submission Support",
+    message:
+      "I faced multiple rejections despite solid research. Their editing service polished the language and formatted it perfectly for the target journal. I received fewer reviewer comments and got accepted quickly. This support improved both my manuscript and publication experience.",
+    image: USER,
   },
   {
-    name: "Dr. Nandita Shah, Clinical Research ",
-    role: "Medicine",
-    company: "Academic Writing Support – Abstract & Introduction",
-    message: "I struggled to condense complex clinical data into a 250-word abstract. Their 1:1 writing support refined the structure, tone, and logic while preserving my voice. The final version was concise yet impactful, and it received positive feedback from reviewers at an SCI-listed journal, boosting my confidence and submission success.",
-    image: USER
+    name: "Dr. Nandita Shah, Clinical Researcher",
+    role: "Medicine & Healthcare",
+    company: "Abstract & Introduction Writing Help",
+    message:
+      "I had trouble summarizing my clinical findings. Their team helped me condense complex ideas into a strong abstract within the word limit. The tone, clarity, and impact improved a lot. Reviewers commented positively, and I now use their help for submission.",
+    image: USER,
   },
   {
-    name: "Dr. Rajesh Mohaptra",
-    role: "Clinical Research Specialist, UAE",
-    company: "Scientific Editing & Abstract Development",
-    message: "Translating detailed clinical data into a clear, concise 250-word abstract was a major hurdle. Their expert guidance thoroughly streamlined my ideas, improved clarity, and preserved my academic voice. The final version not only met journal expectations but also earned positive feedback from SCI reviewers, strengthening my confidence in the submission process.",
-    image: USER
+    name: "Dr. Rajesh Mohaptra, Specialist",
+    role: "Clinical Research, UAE",
+    company: "Scientific Editing & Writing",
+    message:
+      "Creating a compelling abstract was a challenge. Their editing process enhanced clarity, reduced jargon, and aligned my writing with journal expectations. The final abstract got good feedback, and I felt confident submitting it. Their service is both professional and reliable.",
+    image: USER,
   },
 ];
+
 
 const TestimonialsSlider = () => {
   const settings = {

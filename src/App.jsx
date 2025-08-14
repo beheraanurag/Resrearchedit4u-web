@@ -12,6 +12,8 @@ import AboutUs from './assets/Pages/About';
 import Contact from './assets/Pages/Contact';
 import Footer from './assets/Pages/Footer';
 import QuickStartForm from './assets/Pages/Quickform';
+import Blogs from './assets/Pages/Blogs';
+import Career from './assets/Pages/Career';
 
 function App() {
   return (
@@ -21,21 +23,25 @@ function App() {
         <Route
           path="/" element={
             <>
-      <Hero />
+              <Hero />
+              <ProcessSteps />
+              <TestimonialPage />
+              <Faq />
+              {/* <QuickStartForm /> */}
+              <Footer />
 
             </>
-            
+
           }
         />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/faq" element={<Faq />} />
+        <Route path="/blogs" element={<Blogs />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/Career" element={<Career />} />
+
       </Routes>
-      <ProcessSteps />
-      <TestimonialPage />
-      <QuickStartForm/>
-      <Footer/>
+
     </Router>
   );
 }

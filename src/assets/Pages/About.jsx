@@ -1,28 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "../style/style.css";
 import aboutImg from "../images/aboutimg.webp";
 import Professionl from "../images/professionl.webp";
 import Discipline from "../images/discipline.webp";
 import Best from "../images/best.webp";
 
-
 const stats = [
-  { value: "4,500+", label: "Papers Edited" },
-  { value: "1,200+", label: "Synopsis Supported" },
-  { value: "2,800+", label: "Literature Reviews" },
-  { value: "950+", label: "Theses Guided" },
-  { value: "1,700+", label: "PhD Scholars Helped" },
+  { value: 4500, label: "Papers Edited" },
+  { value: 1200, label: "Synopsis Supported" },
+  { value: 2800, label: "Literature Reviews" },
+  { value: 950, label: "Theses Guided" },
+  { value: 1700, label: "PhD Scholars Helped" },
 ];
 
 const AboutUs = () => {
+  const [counts, setCounts] = useState(stats.map(() => 0));
+
+  useEffect(() => {
+    const intervals = stats.map((stat, i) => {
+      let start = 0;
+      const end = stat.value;
+      const step = Math.ceil(end /200); // controls speed
+      return setInterval(() => {
+        start += step;
+        if (start >= end) {
+          start = end;
+          clearInterval(intervals[i]);
+        }
+        setCounts(prev => {
+          const newCounts = [...prev];
+          newCounts[i] = start;
+          return newCounts;
+        });
+      }, 20); // 20ms per update
+    });
+
+    return () => intervals.forEach(clearInterval);
+  }, []);
+
   return (
-    <div className="about-container">
+    <div className="about-container" id='lean-more'>
       {/* Section: About */}
       <section className="hover-section">
         <h1 className="about-title">About ResearchEdit4U</h1>
         <p className="about-hero">
-          At ResearchEdit4U, we were born from a quiet revolution — one sparked not in boardrooms,
-          but in the lonely late-night hours of labs, libraries, and PhD cubicles.
+          ResearchEdit4U was born from a quiet revolution sparked in the late-night hours of labs, libraries, and PhD cubicles.
         </p>
 
         <div className="about-section-flex">
@@ -53,24 +75,20 @@ const AboutUs = () => {
               heading: "150+ Expert Professionals",
               text: "Over 150 expert editors, peer reviewers, and publication consultants.",
               img: Professionl,
-
             },
             {
               heading: "20+ Disciplines Covered",
               text: "Across science, medicine, engineering, social sciences, and humanities.",
               img: Discipline,
-
             },
             {
               heading: "10 Years of Experience",
               text: "A decade in top-tier publishing, editing, and research coaching.",
               img: Best,
-
             },
           ].map((card, i) => (
             <div key={i} className="who-card">
               <img src={card.img} alt={card.heading} className="card-image" />
-
               <h2 className="card-heading">{card.heading}</h2>
               <p className="card-subheading">{card.text}</p>
             </div>
@@ -84,7 +102,7 @@ const AboutUs = () => {
         <div className="stats-grid">
           {stats.map((stat, index) => (
             <div key={index} className="stat-box">
-              <div className="stat-value">{stat.value}</div>
+              <div className="stat-value">{counts[index]}+</div>
               <div className="stat-label">{stat.label}</div>
             </div>
           ))}
@@ -136,8 +154,8 @@ const AboutUs = () => {
           to survive the next deadline — we’re here. Because your research deserves to be heard.
         </p>
         <a href="Hy">
-        <button className="cta-button">Get Started</button></a>
-      
+          <button className="cta-button">Get Started</button>
+        </a>
       </div>
     </div>
   );
