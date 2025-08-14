@@ -40,7 +40,7 @@ const steps = [
     },
 ];
 
-const ProcessSteps = () => {
+const Process = () => {
     return (
         <section className="process-section">
             <h2 >A Simple Process with Powerful Results</h2>
@@ -141,4 +141,4 @@ const ProcessSteps = () => {
     );
 };
 
-export default ProcessSteps;
+export default Process;
