@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import '../src/assets/style/style.css';
 import Navbar from './assets/Pages/Navbar';
 import Hero from './assets/Pages/Hero';
-import ProcessSteps from './assets/Pages/Process';
+import Process from './assets/Pages/Process';
 import TestimonialPage from './assets/Pages/Testimonials';
 import Faq from './assets/Pages/Faq';
 import Services from './assets/Pages/Services';
@@ -24,7 +24,7 @@ function App() {
           path="/" element={
             <>
               <Hero />
-              <ProcessSteps />
+              <Process />
               <TestimonialPage />
               <Faq />
               {/* <QuickStartForm /> */}

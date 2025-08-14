@@ -1,6 +1,6 @@
 import React from 'react';
 import '../style/style.css';
-import uploadIcon from '../images/Submit.webp';
+import uploadIcon from '../images/submit.webp';
 import reviewIcon from '../images/expert.webp';
 import paymentIcon from '../images/payment.webp';
 import qcIcon from '../images/review.webp';
@@ -40,7 +40,7 @@ const steps = [
     },
 ];
 
-const ProcessSteps = () => {
+const Process = () => {
     return (
         <section className="process-section">
             <h2 >A Simple Process with Powerful Results</h2>
@@ -141,4 +141,4 @@ const ProcessSteps = () => {
     );
 };
 
-export default ProcessSteps;
+export default Process;
