@@ -1,7 +1,7 @@
 // HeroSlider.jsx
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules'; // Import Autoplay module
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import '../style/style.css';
 import slide1 from '../images/slide1.webp';
@@ -9,6 +9,11 @@ import slide2 from '../images/slide2.webp';
 import slide3 from '../images/slide3.webp';
 import slide4 from '../images/slide4.webp';
 
+// Import different PDFs for each slide
+import PDF1 from "../images/Brochure.pdf";
+import PDF2 from "../images/Brochure.pdf";
+import PDF3 from "../images/Brochure.pdf";
+import PDF4 from "../images/Brochure.pdf";
 
 const slidesData = [
   {
@@ -21,21 +26,23 @@ const slidesData = [
       "Affordable check starts at ₹500",
     ],
     img: slide4,
-    bgClass: "slide-bg3"
-
+    bgClass: "slide-bg3",
+    pdfLink: PDF1,
+    bookLink: "https://yourwebsite.com/book-ai-plagiarism"
   },
   {
-    title: "Abstract, Introduction and Manuscript Help Anytime",
+    title: "Abstract, Introduction and Manuscript Expert Help Anytime",
     desc: "Struggling with writing flow, structure, or clarity? We help you write better without losing your voice expert support only.",
     features: [
-      "Complete guidance by subject experts",
+      "Complete guidance by subject ",
       "Logical flow + correct presentation",
       "1:1 consult with PhD specialists",
       "Track changes + expert comments",
     ],
     img: slide3,
-    bgClass: "slide-bg1"
-
+    bgClass: "slide-bg1",
+    pdfLink: PDF2,
+    bookLink: "https://yourwebsite.com/book-manuscript-help"
   },
   {
     title: "Graphical Abstracts and Figures That Impress Editors",
@@ -47,11 +54,12 @@ const slidesData = [
       "10K+ Visuals Delivered",
     ],
     img: slide2,
-    bgClass: "slide-bg2"
-
+    bgClass: "slide-bg2",
+    pdfLink: PDF3,
+    bookLink: "https://yourwebsite.com/book-graphical-abstracts"
   },
   {
-    title: " Research Paper Editing &  Journals Submission Support ",
+    title: "Research Paper Editing & Journals Submission Support",
     desc: "From editing to journal submission—get published faster in Scopus/SCI journals with support from PhD experts.",
     features: [
       "Language + formatting by PhDs",
@@ -60,8 +68,9 @@ const slidesData = [
       "Supported 20,000+ researchers",
     ],
     img: slide1,
-    bgClass: "slide-bg4"
-
+    bgClass: "slide-bg4",
+    pdfLink: PDF4,
+    bookLink: "https://yourwebsite.com/book-journal-submission"
   },
 ];
 
@@ -71,18 +80,26 @@ const HeroSlider = () => {
       spaceBetween={30}
       slidesPerView={1}
       autoplay={{
-        delay: 10000, // 10 seconds
+        delay: 10000,
         disableOnInteraction: false,
       }}
       modules={[Autoplay]}
     >
       {slidesData.map((slide, index) => (
         <SwiperSlide key={index}>
-          <section className={`hero-slide ${slide.bgClass}`} >
-            <div className="hero-left" >
+          <section className={`hero-slide ${slide.bgClass}`}>
+            <div className="hero-left">
               <h1>{slide.title}</h1>
               <p>{slide.desc}</p>
-              <button className="explore-btn">See Sample & Book Now </button>
+
+              {/* Separate buttons */}
+              <a href={slide.pdfLink} download>
+                <button className="explore-btn">See Sample</button>
+              </a>
+              <a href={slide.bookLink} target="_blank" rel="noopener noreferrer">
+                <button className="explore-btn">Book Now</button>
+              </a>
+
               <ul className="hero-features">
                 {slide.features.map((item, i) => (
                   <li key={i}>{item}</li>
