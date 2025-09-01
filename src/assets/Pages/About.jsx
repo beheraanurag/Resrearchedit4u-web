@@ -20,7 +20,7 @@ const AboutUs = () => {
     const intervals = stats.map((stat, i) => {
       let start = 0;
       const end = stat.value;
-      const step = Math.ceil(end /200); // controls speed
+      const step = Math.ceil(end / 200); // controls speed
       return setInterval(() => {
         start += step;
         if (start >= end) {
@@ -44,7 +44,7 @@ const AboutUs = () => {
       <section className="hover-section">
         <h1 className="about-title">About ResearchEdit4U</h1>
         <p className="about-hero">
-          ResearchEdit4U was born from a quiet revolution sparked in the late-night hours of labs, libraries, and PhD cubicles.
+          ResearchEdit4U was born from late-night hours in labs, libraries, and PhD cubicles.
         </p>
 
         <div className="about-section-flex">

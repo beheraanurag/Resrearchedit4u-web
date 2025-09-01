@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaHome, FaUser, FaCogs, FaBlog, FaEnvelope } from "react-icons/fa";
+import { FaHome, FaUser, FaCogs, FaBlog, FaEnvelope, FaInfoCircle, FaChevronDown } from "react-icons/fa";
 import "../style/style.css";
 import Logo from "../images/logo.webp";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [aboutDropdown, setAboutDropdown] = useState(false);
+  const closeMenu = () => setMenuOpen(false);
+
 
   return (
     <header className="header">
@@ -30,11 +33,39 @@ const Navbar = () => {
               <FaUser className="nav-icon" /> About
             </Link>
           </li>
-          <li>
-            <Link to="/services" className="nav-link" onClick={() => setMenuOpen(false)}>
-              <FaCogs className="nav-icon" /> Services
-            </Link>
+
+
+          {/* Dropdown as a proper <li> */}
+          <li className="dropdown">
+            <button
+              className="dropdown-btn"
+              onClick={() => setAboutDropdown(!aboutDropdown)}
+            >
+              <FaCogs className="nav-icon" /> Services 
+
+            </button>
+            <div className={`dropdown-content ${aboutDropdown ? "show" : ""}`}>
+              <Link to="/Services" className="dropdown-link" onClick={() => { closeMenu(); }}>
+                Service Overview
+              </Link>
+              <Link to="/Research" className="dropdown-link" onClick={() => { closeMenu(); }}>
+                Research Planning
+              </Link>
+              <Link to="/Data" className="dropdown-link" onClick={() => { closeMenu(); }}>
+                Data Services
+              </Link>
+              <Link to="/Editorial" className="dropdown-link" onClick={() => { closeMenu(); }}>
+                Editorial Support
+              </Link>
+              <Link to="/Publication" className="dropdown-link" onClick={() => { closeMenu(); }}>
+                Publication Support
+              </Link>
+              <Link to="/Academic" className="dropdown-link" onClick={() => { closeMenu(); }}>
+                Academic Presentation
+              </Link>
+            </div>
           </li>
+
           <li>
             <Link to="/blogs" className="nav-link" onClick={() => setMenuOpen(false)}>
               <FaBlog className="nav-icon" /> Blogs

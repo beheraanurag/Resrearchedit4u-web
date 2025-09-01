@@ -20,7 +20,7 @@ const Footer = () => {
     { to: "/", label: "Home" },
     { to: "/about", label: "About" },
     { to: "/services", label: "Services" },
-    { to: "/faq", label: "FAQ" },
+    { to: "/blogs", label: "Blogs" },
     { to: "/contact", label: "Contact" },
     { to: "/career", label: "Career" }
 

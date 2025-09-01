@@ -1,39 +1,36 @@
-import React from "react";
-import "../style/style.css";
+import React, { useState } from 'react';
+import '../style/style.css';
 
-const CareerPage = () => {
+export default function Career() {
+  const [email, setEmail] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubmitted(true);
+    setTimeout(() => { setEmail(''); setSubmitted(false); }, 1000);
+  };
+
   return (
     <div className="career-container">
-      <header className="career-header">
-        <h1>Careers at Our Company</h1>
-        <p>Join us and be a part of our innovative journey.</p>
-      </header>
+      <h1 className="career-title">Opening Soon</h1>
+      <p className="career-subtitle">
+        Our careers page is being prepared. Leave your email to get notified.
+      </p>
 
-      <section className="career-section">
-        <h2>Current Openings</h2>
-        <div className="no-openings">
-          <p>🚫 There are currently no open positions available.</p>
-          <p>
-            However, we’re always looking for talented people!  
-            You can send your resume to  
-            <a href="mailto:hr@company.com"> hr@company.com</a>
-          </p>
-        </div>
-      </section>
-
-      <section className="career-section">
-        <h2>Why Work With Us?</h2>
-        <ul className="career-list">
-          <li>🌱 Growth Opportunities</li>
-          <li>💡 Innovative Work Culture</li>
-          <li>🏆 Employee Recognition Programs</li>
-          <li>📚 Continuous Learning</li>
-        </ul>
-      </section>
-
-      
+      <form onSubmit={handleSubmit} className="career-form">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="career-input"
+        />
+        <button type="submit" className="career-button">
+          {submitted ? 'Thanks!' : 'Notify Me'}
+        </button>
+      </form>
     </div>
   );
-};
-
-export default CareerPage;
+}
