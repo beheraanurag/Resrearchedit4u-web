@@ -1,48 +1,56 @@
 import React from 'react';
 import '../style/style.css';
-import uploadIcon from '../images/submit.webp';
-import reviewIcon from '../images/expert.webp';
-import paymentIcon from '../images/payment.webp';
-import qcIcon from '../images/review.webp';
-import deliveryIcon from '../images/delivery.webp';
+import { servicesData, steps } from "../content/processdata";
 import AI from '../images/ai.webp';
 import Journal from '../images/journal.webp';
 import Risk from '../images/risk.webp';
 import PDF from "../images/Brochure.pdf";
 import { Link } from 'react-router-dom';
-
-
-const steps = [
-    {
-        title: 'Submit Requirement',
-        desc: 'Upload your draft, select services.',
-        icon: uploadIcon,
-    },
-    {
-        title: 'Expert Review',
-        desc: 'PhD expert assesses & gives quote.',
-        icon: reviewIcon,
-    },
-    {
-        title: 'Payment',
-        desc: 'Matched with subject editor.',
-        icon: paymentIcon,
-    },
-    {
-        title: 'QC & Review',
-        desc: 'Reviewed for quality, originality.',
-        icon: qcIcon,
-    },
-    {
-        title: 'Final Delivery',
-        desc: 'Delivered security revisions allowed.',
-        icon: deliveryIcon,
-    },
-];
-
 const Process = () => {
     return (
+
         <section className="process-section">
+            <section className="services">
+                <div className="container">
+                    <h2 className="title">Our Popular Services</h2>
+                    <p className="subtitle">
+                        Everything you need from planning to publication fast, ethical, and
+                        university-compliant.
+                    </p>
+
+                    <div className="grid">
+                        {servicesData.map((service) => (
+                            <article key={service.id} className="card">
+                                <span className="ribbon">Popular</span>
+                                <div className="iicon">{service.iicon}</div>
+                                <h4 className="card-title">{service.title}</h4>
+                                <p className="card-sub">{service.tagline}</p>
+                                <ul className="list">
+                                    {service.bullets.map((b, i) => (
+                                        <li key={i}>{b}</li>
+                                    ))}
+                                </ul>
+                                <p className="price">Starts at {service.price}</p>
+                                <div className="actions">
+                                    <a href={service.sampleHref} className="btn primary">
+                                        Download Sample
+                                    </a>
+                                    <a href={service.exploreHref} className="btn link">
+                                        Explore →
+                                    </a>
+                                </div>
+                            </article>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* offer section */}
+            <section className="offer">
+                <h1>Expert editing ensures clarity, precision, and success in global publications. Flat 50% OFF! 🎉 Book Now!</h1>
+            </section>
+
+            {/* Simple Process */}
             <h2 >A Simple Process with Powerful Results</h2>
             <button className="primary-btn">Get Started in 2 Minutes</button>
             <div className="steps-grid">
@@ -68,7 +76,7 @@ const Process = () => {
                         <h3>PhD-Qualified Editors</h3>
                         <p>Native-English editors with PhDs in your field</p>
                         <p>Over 500 editors across Medicine, Engineering, Social Sciences</p>
-                         <Link to="/about">Learn More &gt;</Link>
+                        <Link to="/about">Learn More &gt;</Link>
                     </div>
 
                     <div className="trust-card">
@@ -76,7 +84,7 @@ const Process = () => {
                         <h3>SCI/Scopus Journal Success</h3>
                         <p>Expert guidance & formatting for top-indexed journals</p>
                         <p>90%+ acceptance rate; journals include <em>Nature, The Lancet</em></p>
-                         <Link to="/about">Learn More &gt;</Link>
+                        <Link to="/about">Learn More &gt;</Link>
                     </div>
 
                     <div className="trust-card">
@@ -91,7 +99,10 @@ const Process = () => {
                 <div className="trust-stats">
                     4051+ researchers helped &bull; 200+ papers published &bull; 95% satisfaction rate
                 </div>
+
             </section>
+
+
 
             {/* QuickOffers section */}
             <section class="quick-offers">
@@ -130,11 +141,9 @@ const Process = () => {
                     >
                         <button class="expert-btn">Talk to an Expert</button>
                     </a>
-
                 </div>
+
             </section>
-
-
         </section>
 
 

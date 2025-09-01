@@ -1,245 +1,259 @@
 import React, { useState } from "react";
 import "../style/style.css";
-import PDF1 from "../images/Brochure.pdf";
-import PDF2 from "../images/Brochure.pdf";
-import PDF3 from "../images/Brochure.pdf";
-import PDF4 from "../images/Brochure.pdf";
-import PDF6 from "../images/Brochure.pdf";
-import PDF7 from "../images/Brochure.pdf";
-import PDF8 from "../images/Brochure.pdf";
-import PDF9 from "../images/Brochure.pdf";
-import PDF10 from "../images/Brochure.pdf";
-import PDF11 from "../images/Brochure.pdf";
-import PDF12 from "../images/Brochure.pdf";
-import PDF13 from "../images/Brochure.pdf";
-import PDF14 from "../images/Brochure.pdf";
-import PDF15 from "../images/Brochure.pdf";
-import PDF16 from "../images/Brochure.pdf";
-import PDF17 from "../images/Brochure.pdf";
-import PDF18 from "../images/Brochure.pdf";
-import PDF19 from "../images/Brochure.pdf";
-import PDF20 from "../images/Brochure.pdf";
-import PDF5 from "../images/Brochure.pdf";
+import { FaCheck, FaWhatsapp } from "react-icons/fa";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { servicesData, faqs, steps, services, summary, testimonials, cstudies } from "../content/seroverviewdata";
+import slide3 from '../images/slide3.webp';
+import Slider from "react-slick";
+import ReactCountryFlag from "react-country-flag";
 
-const servicesData = {
-  "Research Planning": [
-    {
-      title: "Topic Selection ",
-      price: "₹2,999",
-      features: ["2–3 research topics with title suggestions & rationale", "Problem statement and key research questions", "1-page summary with initial citations"],
-      img: "📘",
-      pdfLink: PDF1,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Proposal Support",
-      price: "₹4,999",
-      features: ["Drafting introduction, objectives, and methodology (up to 2 pages)", "Proper academic structure and citation guidance", "Expert review of proposal outline"],
-      img: "📄",
-      pdfLink: PDF2,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Research Design",
-      price: "₹4,999",
-      features: ["Tool and method recommendations based on research scope", "Sampling techniques and variable mapping", "Conceptual framework outline"],
-      img: "⚙️",
-      pdfLink: PDF3,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Ethics & Feasibility ",
-      price: "₹3,999",
-      features: ["Ethical considerations and viability analysis", "University ethics form review and suggestions", "Timeline and resource feasibility plan"],
-      img: "✅",
-      pdfLink: PDF4,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-  ],
-  "Data Services": [
-    {
-      title: "Statistical Analysis ",
-      price: "₹6,999",
-      features: ["SPSS, R, or Python-based statistical testing (ANOVA, regression, etc.)", "Graphs, tables, and visualization of results", "Interpretation notes for each analysis output"],
-      img: "📊",
-      pdfLink: PDF5,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Data Cleaning",
-      price: "₹4,999",
-      features: ["Removal of outliers, missing values, and errors", "Data transformation and coding for analysis", "Clean and structured datasets (Excel/SPSS/Python)"],
-      img: "🔄",
-      pdfLink: PDF6,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "ML Modelling",
-      price: "₹7,999",
-      features: ["Python/R-based regression, classification, or clustering models", "Data training and accuracy evaluation", "Clear outputs with step-by-step explanation"],
-      img: "🤖",
-      pdfLink: PDF7,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Interpretation Help ",
-      price: "₹5,999",
-      features: ["Clear explanation of statistical findings", "Writing result summaries in academic style", "Analysis Graphical highlights and insights"],
-      img: "🧾",
-      pdfLink: PDF8,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-  ],
-  "Editorial Support": [
-    {
-      title: "Substantive Editing ",
-      price: "₹4,999",
-      features: ["Logical flow and content restructuring", "Coherence, readability, and sentence refinement", "Detailed suggestions via tracked changes"],
-      img: "✍️",
-      pdfLink: PDF9,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Language Polishing",
-      price: "₹4,000",
-      features: ["Grammar, spelling, and punctuation checks", "Academic tone and vocabulary refinement", "Basic style and clarity adjustments"],
-      img: "🖋️",
-      pdfLink: PDF10,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Formatting Help ",
-      price: "₹3,999",
-      features: ["APA, IEEE, MLA, or journal-specific formats", "Reference and citation alignment", "Table, figure, and margin consistency"],
-      img: "📐",
-      pdfLink: PDF11,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "AI + Plagiarism Fix",
-      price: "₹2,500",
-      features: ["Turnitin report with plagiarism reduction", "AI-generated content rewriting for originality", "Humanized rephrasing with proof certificate"],
-      img: "🛡️",
-      pdfLink: PDF12,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-  ],
-  "Publication Support": [
-    {
-      title: "Pre-Submission Review ",
-      price: "₹5,999",
-      features: ["Reviewer-style feedback on manuscript quality", "Suggestions for strengthening research arguments", "Error and compliance checks"],
-      img: "📑",
-      pdfLink: PDF13,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Manuscript Editing ",
-      price: "₹6,999",
-      features: ["Polishing language and structure", "Reference and citation verification", "Final submission-ready formatting"],
-      img: "📝",
-      pdfLink: PDF14,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Journal Selection",
-      price: "₹4,999",
-      features: ["3–5 journal suggestions with scope match", "Avoid predatory publishers", "Submission guidelines overview"],
-      img: "📚",
-      pdfLink: PDF15,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Submission Guidance",
-      price: "₹5,999",
-      features: ["Portal setup and formatting checklist", "Cover letter drafting for editors", "Final compliance review"],
-      img: "🚀",
-      pdfLink: PDF16,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-  ],
-
-  "Academic Presentations": [
-    {
-      title: "PhD Presentations",
-      price: "₹3,999",
-      features: ["Registration, synopsis, and viva presentation decks", "Slide structure and university-specific formatting", "Error and compliance checks•	Visual elements like charts and flow diagrams"],
-      img: "🎓",
-      pdfLink: PDF17,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Conference Posters  ",
-      price: "₹3,999",
-      features: ["Professional layouts and color themes", "Content placement and concise formatting", "Print-ready high-resolution files"],
-      img: "📝",
-      pdfLink: PDF18,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Oral Conference Slides",
-      price: "₹4,999",
-      features: ["Content-to-slide structuring", "Visual highlights for data and results", "Optional speaker notes and script"],
-      img: "💡 ",
-      pdfLink: PDF19,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-    {
-      title: "Visual Enhancements",
-      price: "₹2,999",
-      features: ["Custom diagrams, flowcharts, and infographics", "Data visualization (graphs/charts)", "Animated or interactive slide elements"],
-      img: "🖼️",
-      pdfLink: PDF20,
-      bookLink: "https://yourwebsite.com/book-ai-plagiarism"
-    },
-  ],
-};
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState("Research Planning");
+  const [openIndex, setOpenIndex] = useState(null);
 
+  const toggleFAQ = (index) => {
+    setOpenIndex(index === openIndex ? null : index);
+  };
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000,
+    responsive: [
+      { breakpoint: 1024, settings: { slidesToShow: 2 } },
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
+    ],
+  };
   return (
-    <div className="services-container">
-      <h2 className="Core-services">Core Services</h2>
-      <div className="tabs">
-        {Object.keys(servicesData).map((tab) => (
-          <button
-            key={tab}
-            className={activeTab === tab ? "active" : ""}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
+    <>
+      {/* Hero section Over-view */}
+      <section className="smart-submission">
+        <div className="content">
+          <h2>Comprehensive Research Support</h2>
+          <p className="description">
+            Expert guidance for researchers and scholars in India, UAE, Australia, UK & beyond.
+            From topic selection to publication, we deliver end-to-end, university-compliant support.
+          </p>
 
-      <div className="card-grid">
-        {servicesData[activeTab].map((service, index) => (
-          <div className="card" key={index}>
-            <div className="icon">{service.img}</div>
-            <h3>{service.title}</h3>
+          <ul className="feature-list">
+            <li>
+              <FaCheck className="check-icon" />
+              1000+ researchers supported globally
+            </li>
+            <li>
+              <FaCheck className="check-icon" />
+              Trusted in 25+ countries, including India, UAE, Australia, UK, USA
+            </li>
+            <li>
+              <FaCheck className="check-icon" />
+              High journal acceptance success rate
+            </li>
+          </ul>
 
-            <ul>
-              {service.features.map((feat, i) => (
-                <li key={i}>{feat}</li>
-              ))}
-            </ul>
-            <p className="price">Starts at only {service.price}</p>
+          <div className="btn-wrapper">
+            <button className="cta-btn">Get Started</button>
+            <button className="cta-btn secondary">View All Services</button>
+          </div>
+        </div>
 
+        <div className="overviewimage">
+          <img src={slide3} alt="overview-img" className="overview-img" />
+        </div>
+      </section>
 
-            <div className="btn-group">
-              <a href={service.bookLink} target="_blank" rel="noopener noreferrer">
-                <button className="book">Book Now</button>
-              </a>
-              <a href={service.pdfLink} download>
-                <button className="sample">Download Sample</button>
-              </a>
+      {/* why choose us */}
+      <section className="why-choose-us">
+        <h2>Why Choose Us</h2>
+        <div className="service-cards">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div className="service-card" key={index}>
+                <h3 className="service-icon"><Icon /></h3>
+                <h3>{service.title}</h3>
+                <h4>{service.subtitle}</h4>
+                <p>{service.description}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
+      {/* Service Category Summary */}
+      <section className="why-choose-us">
+        <h2>Service Category Summary</h2>
+        <div className="service-cards">
+          {summary.map((summary, index) => {
+            const Icon = summary.icon;
+            return (
+              <div className="service-card" key={index}>
+                <h3 className="service-icon"><Icon /></h3>
+
+                <h3>{summary.title}</h3>
+                <h4 style={{ marginBottom: "2px", marginTop: "20px" }}>{summary.subtitle}</h4>
+                {summary.para.map((text, i) => (
+                  <p key={i}>{i + 1}. {text}</p>
+                ))}
+                <h4 style={{ marginBottom: "2px", marginTop: "20px" }}>{summary.description}</h4>
+                {summary.content.map((text, i) => (
+                  <p key={i}>{i + 1}. {text}</p>
+                ))}
+              </div>
+            );
+          })}
+
+        </div>
+      </section>
+
+      {/* core Services */}
+      <div className="services-container">
+        <h2 className="Core-services">Core Services</h2>
+        <div className="tabs">
+          {Object.keys(servicesData).map((tab) => (
+            <button
+              key={tab}
+              className={activeTab === tab ? "active" : ""}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        <div className="card-grid">
+          {servicesData[activeTab].map((service, index) => (
+            <div className="card" key={index}>
+              <div className="icon">{service.img}</div>
+              <h3>{service.title}</h3>
+              <ul>
+                {service.features.map((feat, i) => (
+                  <li key={i}>{feat}</li>
+                ))}
+              </ul>
+              <p className="price">Starts at only {service.price}</p>
+              <div className="btn-group">
+                <a href={service.bookLink} target="_blank" rel="noopener noreferrer">
+                  <button className="book">Book Now</button>
+                </a>
+                <a href={service.pdfLink} download>
+                  <button className="sample">Download Sample</button>
+                </a>
+
+              </div>
             </div>
+          ))}
+        </div>
+      </div>
+      {/* Know ur Process */}
+      <section className="process-section">
+        <h2 style={{ marginBottom: "40px" }}>Know our Process </h2>
+        <div className="steps-grid">
+          {steps.map((step, idx) => (
+            <div key={idx} className="step-card">
+              <img src={step.icon} alt={step.title} />
+              <h4>{step.title}</h4>
+            </div>
+          ))}
+        </div>
+
+        {/* Testimonials */}
+      </section>
+      <section className="testimonial-section">
+        <h2 className="testimonial-heading">Testimonials</h2>
+        <Slider {...settings}>
+          {testimonials.map((t, index) => (
+            <div className="testimonial-slide" key={index}>
+              <div className="testimonial-card">
+                <img src={t.image} alt={t.name} className="testimonial-image" />
+                <p className="testimonial-message">“{t.message}”</p>
+                <h3 className="testimonial-name" style={{ marginTop: "20px" }}>{t.name}</h3>
+                <p className="testimonial-role">{t.company}</p>
+                <ReactCountryFlag
+                  countryCode={t.countryCode}
+                  svg
+                  className="service-icon"
+                />
+
+              </div>
+            </div>
+          ))}
+        </Slider>
+      </section>
+
+
+      {/* FAQ */}
+      <div className="faq-container">
+        <h2 className="faq-title">Frequently Asked Questions</h2>
+        {faqs.map((faq, index) => (
+          <div key={index} className="faq-item">
+            <div className="faq-header">
+              <div className="faq-question">{faq.question}</div>
+              <button
+                className="faq-toggle-button"
+                onClick={() => toggleFAQ(index)}
+              >
+                {openIndex === index ? "−" : "+"}
+              </button>
+            </div>
+            {openIndex === index && <div className="faq-answer">{faq.answer}</div>}
           </div>
         ))}
       </div>
-    </div>
+      {/* Case Studies */}
+      <section className="why-choose-us">
+        <h2>Case Studies</h2>
+        <div className="service-cards">
+          {cstudies.map((cstudies, index) => (
+            <div className="service-card" key={index}>
+              <ReactCountryFlag
+                countryCode={cstudies.countryCode}
+                svg
+                className="service-icon"
+              />
+              <h3>{cstudies.title}</h3>
+              <h4 style={{ marginBottom: "2px", marginTop: "20px" }}>{cstudies.Client}</h4>
+              <p>{cstudies.Clientdesc}</p>
+              <h4 style={{ marginBottom: "2px", marginTop: "10px" }}>{cstudies.Challenge}</h4>
+              <p>{cstudies.Challengedesc}</p>
+              <h4 style={{ marginBottom: "2px", marginTop: "10px" }}>{cstudies.Solution}</h4>
+              <p>{cstudies.Solutiondesc}</p>
+              <h4 style={{ marginBottom: "2px", marginTop: "10px" }}>{cstudies.Result}</h4>
+              <p>{cstudies.Resultsdesc}</p>
+              <button className="cta-button" style={{ marginTop: "20px" }}>Download</button>
+            </div>
+          ))}
+        </div>
+
+      </section>
+
+      {/* Section: Get In Touch */}
+
+      <section className="related-services">
+        <h2 className="services-title">Ready to advance your research journey ?</h2>
+        <p className="services-text">
+          Ready to start planning your research with us? <br />
+          <strong>Get in touch today.</strong>
+        </p>
+
+        <a
+          href="https://wa.me/919876543210?text=Hello%20Researchedit4u%2C%20I%20would%20like%20to%20book%20a%20consultation."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="whatsapp-btn"
+        >
+          <FaWhatsapp className="wp-icon" />
+          Book a Free Consultation / Submit Your Research Idea
+        </a>
+      </section>
+
+
+    </>
   );
 };
 
