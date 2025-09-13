@@ -1403,6 +1403,13 @@ body {
         justify-content: center;
         text-align: left;
     }
+      .smart-submission h2 {
+        font-size: 2rem;
+    }
+
+    .smart-submission .description {
+        font-size: 1.2rem;
+    }
 
     .btn-wrapper {
         justify-content: center;
@@ -1415,13 +1422,12 @@ body {
 }
 
 @media (max-width: 480px) {
-    .smart-submission h2 {
-        font-size: 1.6rem;
+     .smart-submission h2 {
+        font-size: 2rem;
     }
 
     .smart-submission .description {
-        font-size: 1rem;
-        line-height: 1.6rem;
+        font-size: 1.2rem;
     }
 
     .cta-btn {
