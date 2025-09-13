@@ -1385,6 +1385,11 @@ body {
     .smart-submission .description {
         font-size: 1.2rem;
     }
+
+    .feature-list li {
+        font-size: 1rem;
+
+    }
 }
 
 @media (max-width: 900px) {
@@ -1402,6 +1407,16 @@ body {
     .feature-list li {
         justify-content: center;
         text-align: left;
+        font-size: 1rem;
+
+    }
+
+    .smart-submission h2 {
+        font-size: 2rem;
+    }
+
+    .smart-submission .description {
+        font-size: 1.2rem;
     }
 
     .btn-wrapper {
@@ -1416,12 +1431,15 @@ body {
 
 @media (max-width: 480px) {
     .smart-submission h2 {
-        font-size: 1.6rem;
+        font-size: 2rem;
     }
 
     .smart-submission .description {
+        font-size: 1.2rem;
+    }
+    .feature-list li {
         font-size: 1rem;
-        line-height: 1.6rem;
+
     }
 
     .cta-btn {
