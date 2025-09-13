@@ -1385,6 +1385,11 @@ body {
     .smart-submission .description {
         font-size: 1.2rem;
     }
+
+    .feature-list li {
+        font-size: 1rem;
+
+    }
 }
 
 @media (max-width: 900px) {
@@ -1403,7 +1408,8 @@ body {
         justify-content: center;
         text-align: left;
     }
-      .smart-submission h2 {
+
+    .smart-submission h2 {
         font-size: 2rem;
     }
 
@@ -1422,7 +1428,7 @@ body {
 }
 
 @media (max-width: 480px) {
-     .smart-submission h2 {
+    .smart-submission h2 {
         font-size: 2rem;
     }
 
