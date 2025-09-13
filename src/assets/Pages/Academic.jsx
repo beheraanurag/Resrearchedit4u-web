@@ -9,6 +9,7 @@ import PAY from '../images/payment.webp';
 import Risk from '../images/blueprint.webp';
 import { FaCheck, FaWhatsapp } from "react-icons/fa";
 import { servicesData, faqs, packages } from "../content/editorialdata";
+import { Link } from "react-router-dom";
 
 const Academic= () => {
   const [activeTab, setActiveTab] = useState("Research Planning");
@@ -218,13 +219,13 @@ const Academic= () => {
       <section className="related-services">
         <h2 className="services-title">Related Services</h2>
         <div className="services-links">
-          <a href="/data-services">Research Planning</a>
-          <span>·</span>
-          <a href="/editorial-support">Data Services</a>
-          <span>·</span>
-          <a href="/publication-support">Publication Support</a>
-          <span>·</span>
-          <a href="/publication-support">Academic Presentations</a>
+          <a href="/research">Research Planning</a>
+          <br/>
+          <Link to="/data">Data Services</Link>
+          <br/>
+          <Link to="/editorial">Editorial Support</Link>
+          <br/>
+          <Link to="/publication">Publication Support</Link>
         </div>
 
         <p className="services-text">
