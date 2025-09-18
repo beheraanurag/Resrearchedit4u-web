@@ -8,7 +8,7 @@ import FINAL from '../images/school.webp';
 import PAY from '../images/payment.webp';
 import Risk from '../images/blueprint.webp';
 import { FaCheck, FaWhatsapp } from "react-icons/fa";
-import { servicesData, faqs, packages } from "../content/editorialdata";
+import { servicesData, faqs, packages } from "../content/academic";
 import { Link } from "react-router-dom";
 
 const Academic= () => {
@@ -25,25 +25,25 @@ const Academic= () => {
       {/* Hero section Over-view */}
       <section className="smart-submission">
         <div className="content">
-          <h2>Expert Editorial Support for Research and Publication Success.</h2>
+          <h2>Present Your Research with Clarity & Impact</h2>
           <p className="description">
-            Expert Editorial Support for Research & Publication Success, Ensuring Clarity, Accuracy, and Impact.  </p>
+            Expert support for academic presentations—from research posters and conference slides to thesis defense (viva) decks, data visualization, and presentation coaching. </p>
 
           <ul className="feature-list">
             <li>
               <FaCheck className="check-icon" />
-              Improve clarity and logical flow </li>
+             University-style poster/layout guidance  </li>
             <li>
               <FaCheck className="check-icon" />
-              Format to APA / IEEE / MLA / journal </li>
+              Clear slide design  </li>
             <li>
               <FaCheck className="check-icon" />
-              Eliminate plagiarism & humanize AI text </li>
+              Rehearsal & feedback </li>
           </ul>
 
           <div className="btn-wrapper">
             <button className="cta-btn">Get Started</button>
-            <button className="cta-btn secondary">View All Services</button>
+            <button className="cta-btn secondary">See Samples </button>
           </div>
         </div>
 
@@ -62,20 +62,20 @@ const Academic= () => {
         <div className="trust-cards" >
           <div className="trust-card-circle" >
             <div className="trust-icon" >🏆</div>
-            <h3> Expert Academic Editors </h3>
-            <p>PhD-qualified specialists ensuring clarity, accuracy, and scholarly excellence</p>
+            <h3>Thesis Defense Support </h3>
+            <p>Guiding scholars for confident thesis defense and viva.</p>
           </div>
 
           <div className="trust-card-circle" >
             <div className="trust-icon">✅</div>
-            <h3>Journal-Ready Formatting</h3>
-            <p>APA, MLA, IEEE, or custom styles tailored to submission requirements.</p>
+            <h3>Research Presentation Design</h3>
+            <p>Designing impactful posters and presentations for researchers.</p>
           </div>
 
           <div className="trust-card-circle" >
             <div className="trust-icon">📈</div>
-            <h3>Secure & Trusted Process </h3>
-            <p>Ethical editing with strict confidentiality and NDA-backed safeguards.</p>
+            <h3>Conference Style Guidance</h3>
+            <p>Ensuring alignment with journal and conference style requirements.</p>
           </div>
         </div>
         <div className="trust-stats">
@@ -125,31 +125,31 @@ const Academic= () => {
         <div class="offers">
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={AI} alt="AI + Plagiarism Report" />
-            <h3>Upload Manuscript</h3>
-            <p>Share your draft and style guide with experts for accurate, polished, publication-ready work.</p>
+            <h3>Consultation & Brief </h3>
+            <p>Share your conference/venue, audience level, and goals (poster, oral presentation, or viva). We align on content scope and deliverables.</p>
           </div>
 
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={Risk} alt="Rejection Risk Check" />
-            <h3>Expert Editing</h3>
-            <p>Substantive, language, formatting edits ensure clarity, precision, and compliance with academic journal standards.</p>
+            <h3>Content Structuring </h3>
+            <p>We shape your talk/poster using research-friendly structure, selecting key messages, figures, and captions.</p>
           </div>
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={PAY} alt="Rejection Risk Check" />
-            <h3>Quotation & Payment</h3>
-            <p>Detailed Quotation and Transparent Payment Terms for Seamless Project Execution and Client Satisfaction.</p>
+            <h3>Transparent Quote & Payment </h3>
+            <p>You receive a clear plan and pricing for the selected services. Work starts after payment confirmation.</p>
           </div>
 
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={Journal} alt="Journal Match Pro" />
-            <h3>Plagiarism Check </h3>
-            <p>Optional Turnitin-style report available to check originality, ensuring plagiarism-free, ethical academic submissions.</p>
+            <h3>Design & Visualization  </h3>
+            <p>We design for readability: concise text, large fonts, purposeful graphics, and minimal distractions—following proven university guidelines.</p>
           </div>
 
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={FINAL} alt="Journal Match Pro" />
-            <h3>Final Delivery</h3>
-            <p>We deliver a polished, submission-ready manuscript tailored to journal guidelines and reviewer expectations.</p>
+            <h3>Review & Refinement </h3>
+            <p>Feedback cycles on content and visuals; final files exported to conference specs (size, resolution, aspect ratio, accessibility notes).</p>
           </div>
         </div>
         <div class="help-box">

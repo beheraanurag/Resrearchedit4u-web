@@ -5,50 +5,50 @@ import PDF4 from "../images/Brochure.pdf";
 const servicesData = {
   "Research Planning": [
     {
-      title: "Substantive Editing ",
+      title: "Research Poster Design  ",
       features: [
-         "Ensuring logical flow, coherence, clarity, and comprehensive sentence refinement throughout.",
-        "Providing tracked-change suggestions, comments & overall readability improvements."
+        "	Layout built for scanning (columns, hierarchy, text).",
+        "Clear figures/tables with purposeful visuals and headings, Word count and sizing aligned to common poster guidance."
       ],
-      price: "₹4,999",
+      price: "₹3,499",
 
-      img: "✍️",
+      img: "🖼️ ",
       pdfLink: PDF1,
       bookLink: "https://yourwebsite.com/book-ai-plagiarism",
     },
     {
-      title: "Language Polishing",
+      title: "Professional Slide Deck Design ",
       features: [
-        "Checking grammar, spelling, punctuation, and refining academic tone consistently.",
-        "Enhancing vocabulary, style, clarity, and overall readability for academic writing.",
+        "Crisp slide templates, large fonts, minimal text per slide.",
+        "Visual storytelling: figures, charts, and captions that carry the message, Optional brand integration.",
       ],
-      price: "₹4,000",
+      price: "₹4,499",
 
-      img: "🖋️",
+      img: "🖥️",
       pdfLink: PDF2,
       bookLink: "https://yourwebsite.com/book-ai-plagiarism",
     },
     {
-      title: "Formatting Help",
+      title: "Thesis Defense / Viva Presentation ",
       features: [
-        "Ensuring APA, IEEE, MLA, or journal-specific formatting with precision.",
-        "Aligning references, citations, tables, figures, and margins with consistency."
+        "IMRaD-aligned narrative adapted to defense goals.",
+        "Focus on gap, contribution, limitations, and future work, Speaker notes, timing plan, and Q&A preparation."
       ],
-      price: "₹3,999",
+      price: "₹5,999",
 
-      img: "📐",
+      img: "📝",
       pdfLink: PDF3,
       bookLink: "https://yourwebsite.com/book-ai-plagiarism",
     },
     {
-      title: "AI + Plagiarism Fix",
+      title: "Presentation Coaching & Rehearsal ",
       features: [
-        "Providing Turnitin reports, plagiarism reduction, and humanized AI-text rewriting.",
-        "Delivering authentic proof certificates ensuring originality and academic content integrity."
+        "Live rehearsals with structured feedback (timing, flow, narrative).",
+        "Q&A drills for committee / conference formats, 	Practical delivery tips: pacing, slide rhythm, and audience cues."
       ],
-      price: "₹2,500",
+      price: "₹3,999",
 
-      img: "🛡️",
+      img: "🧑‍🏫",
       pdfLink: PDF4,
       bookLink: "https://yourwebsite.com/book-ai-plagiarism",
     },
@@ -56,30 +56,39 @@ const servicesData = {
 };
 const faqs = [
   {
-    question: "What is Expert Editorial Support for Research & Publication Success? ",
-    answer: "Our expert editorial support ensures your research paper is clear, professional, and aligned with publication standards, giving you the best chance of acceptance."
+    question: "What makes a strong academic poster?  ",
+    answer: "A clean, consistent layout with prominent title, short text, and purposeful visuals. Keep content readable from a distance."
   },
   {
-    question: "How do you improve clarity and logical flow in my manuscript? ",
-    answer: "We restructure sentences, refine arguments, and smooth transitions so that your manuscript reads seamlessly and delivers your ideas effectively."
+    question: "How many lines/words per slide are ideal? ",
+    answer: "YWe restructure sentences, refine arguments, and smooth transitions so that your manuscript reads seamlessly and delivers your ideas effectively.Keep slides scannable: short bullets, large fonts, minimal text (e.g., 6×6-style guidance). Avoid distracting transitions."
 
   },
   {
-    question: "Do you format manuscripts according to APA, IEEE, MLA, or journal guidelines?",
-    answer: "Yes, we format your paper to match specific journal or style requirements, including APA, IEEE, MLA, or any target publication format."
+    question: "Do you help with thesis defense (viva) structure? ",
+    answer: "Yes—opening context, gap/contribution, methods, results, limitations, and next steps, with speaker notes and Q&A practice."
   },
   {
-    question: "Can you help eliminate plagiarism and humanize AI-generated text?",
-    answer: "Absolutely. We run advanced plagiarism checks, rephrase overlapping content, and refine AI-generated text to make it natural and authentic."
+    question: "Should research talks follow IMRaD? ",
+    answer: "Often yes for empirical studies (Intro, Methods, Results, Discussion), adapted to audience/time. We adjust for theory/design-led work."
   },
   {
-    question: "Why should I choose your service for research publication support? ",
-    answer: "Because we combine substantive editing, language refinement, and formatting expertise to deliver submission-ready manuscripts with higher chances of acceptance."
+    question: "Can you redesign my existing slides/poster? ",
+    answer: "Yes—light polish or full rebuild while preserving your content integrity."
   },
   {
-    question: "Will I receive feedback after editing my manuscript?",
-    answer: "Yes, our team works with both quantitative (statistical) and qualitative (thematic) data."
+    question: "Do you provide figure/chart clean-ups? ",
+    answer: "Yes—labels, scales, and contrast for clarity; succinct captions and callouts tied to your message."
   },
+  {
+    question: "Will you also help me rehearse?  ",
+    answer: "Yes—timing, narrative flow, and Q&A drills."
+  },
+{
+    question: "Do you offer printing specs or export files?  ",
+    answer: "Yes—final PDFs/PNGs sized to conference requirements (e.g., A0/A1; 16:9 slides) with bleed/resolution guidance."
+  },
+
 
 ];
 const packages = [

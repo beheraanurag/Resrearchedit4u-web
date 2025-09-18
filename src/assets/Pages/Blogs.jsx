@@ -8,6 +8,7 @@ import Post13Aug from "../../blog/150825.mdx";
 import Post12Aug from "../../blog/150825.mdx";
 import Post11Aug from "../../blog/150825.mdx";
 
+
 import BIMG from "../images/blog.webp";
 
 const posts = [
@@ -69,4 +70,10 @@ const Blog = () => {
   );
 };
 
+
+
 export default Blog;
+
+
+
+
