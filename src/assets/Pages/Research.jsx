@@ -89,7 +89,7 @@ const Research = () => {
       {/* Sub- Services */}
       <div className="services-container" >
         <h2 className="Core-services" style={{ marginBottom: "20px" }}>Sub-Services</h2>
-        <h2 style={{ fontSize: "18px", color:" #555", fontWeight: "200",  }}>Specialized services crafted to enhance efficiency, productivity, and organizational success.
+        <h2 style={{ fontSize: "17px", color:" #555", fontWeight: "400",  }}>Specialized services crafted to enhance efficiency, productivity, and organizational success.
       </h2>
       {/* Card Grid */}
       <div className="card-grid">
