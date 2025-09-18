@@ -3101,13 +3101,13 @@ body {
     transform: translateY(-5px);
 }
 /* style.css or global.css */
-/* .mdx-img {
+.mdx-img {
   max-width: 50%;
   height: auto;
   display: block;
   overflow: hidden;
   margin: 0 auto;
-} */
+}
 
 
 /* Cover image */
@@ -3239,4 +3239,7 @@ body {
         grid-template-columns: 1fr;
         /* 1 card per row on small screens */
     }
+    .mdx-img {
+    max-width: 100%; /* full width on small screens */
+  }
 }
