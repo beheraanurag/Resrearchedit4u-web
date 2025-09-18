@@ -3100,6 +3100,13 @@ body {
 .blog-card:hover {
     transform: translateY(-5px);
 }
+/* style.css or global.css */
+.mdx-img {
+  max-width: 50%;
+  height: auto;
+  display: block;
+}
+
 
 /* Cover image */
 .blog-cover {
