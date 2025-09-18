@@ -11,6 +11,7 @@ import Post11Aug from "../../blog/150825.mdx";
 
 import BIMG from "../images/blog.webp";
 
+
 const posts = [
   { id: 1, title: "How to Write a Research Problem Statement", date: "Aug 15, 2025", cover: BIMG, Component: Post15Aug },
   { id: 2, title: "Team Event Highlights", date: "Aug 14, 2025", cover: BIMG, Component: Post14Aug },
