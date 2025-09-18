@@ -3176,7 +3176,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    padding: 20px;
+    margin-top: 20px;
 }
 
 .modal-content {
