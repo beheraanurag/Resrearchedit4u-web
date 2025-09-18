@@ -3101,13 +3101,13 @@ body {
     transform: translateY(-5px);
 }
 /* style.css or global.css */
-.mdx-img {
+/* .mdx-img {
   max-width: 50%;
   height: auto;
   display: block;
   overflow: hidden;
   margin: 0 auto;
-}
+} */
 
 
 /* Cover image */
