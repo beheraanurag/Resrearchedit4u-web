@@ -3105,6 +3105,8 @@ body {
   max-width: 50%;
   height: auto;
   display: block;
+  overflow: hidden;
+  margin: 0 auto;
 }
 
 
