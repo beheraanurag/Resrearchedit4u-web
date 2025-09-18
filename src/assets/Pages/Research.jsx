@@ -46,7 +46,7 @@ const Research = () => {
 
           <div className="btn-wrapper">
             <button className="cta-btn">Get Started</button>
-            <button className="cta-btn secondary">View All Services</button>
+            <button className="cta-btn secondary">See Samples</button>
           </div>
         </div>
 
@@ -89,86 +89,86 @@ const Research = () => {
       {/* Sub- Services */}
       <div className="services-container" >
         <h2 className="Core-services" style={{ marginBottom: "20px" }}>Sub-Services</h2>
-        <h2 style={{ fontSize: "19px", color: "grey", fontWeight: "500" }}>Specialized services crafted to enhance efficiency, productivity, and organizational success.
-        </h2>
-        {/* Card Grid */}
-        <div className="card-grid">
-          {servicesData[activeTab].map((service, index) => (
-            <div className="card" key={index}>
-              <div className="icon">{service.img}</div>
-              <h3> {service.title}</h3>
-              <ul>
-                {service.features.map((feat, i) => (
-                  <li key={i}>{feat}</li>
-                ))}
-              </ul>
-              <p className="price">Starts at only {service.price}</p>
-              <div className="btn-group">
-                <a
-                  href={service.bookLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+        <h2 style={{ fontSize: "18px", color:" #555", fontWeight: "200",  }}>Specialized services crafted to enhance efficiency, productivity, and organizational success.
+      </h2>
+      {/* Card Grid */}
+      <div className="card-grid">
+        {servicesData[activeTab].map((service, index) => (
+          <div className="card" key={index}>
+            <div className="icon">{service.img}</div>
+            <h3> {service.title}</h3>
+            <ul>
+              {service.features.map((feat, i) => (
+                <li key={i}>{feat}</li>
+              ))}
+            </ul>
+            <p className="price">Starts at only {service.price}</p>
+            <div className="btn-group">
+              <a
+                href={service.bookLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
 
-                  <button className="book">Book Now</button>
-                </a>
-                <a href={service.pdfLink} download>
-                  <button className="sample">Download Sample</button>
-                </a>
-              </div>
+                <button className="book">Book Now</button>
+              </a>
+              <a href={service.pdfLink} download>
+                <button className="sample">Download Sample</button>
+              </a>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+      {/* How It Works */ }
+  <section class="quick-offers">
+    <h2>How It Works</h2>
+    <p class="subtext">From idea to a ready-to-submit plan, in 4 simple steps.</p>
+
+    <div class="offers">
+      <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
+        <img src={AI} alt="AI + Plagiarism Report" />
+        <h3>Tell Us Your Goal</h3>
+        <p>Share your research stage, topic interests, and university requirements. This helps us align your plan with academic and practical expectations.</p>
       </div>
 
-      {/* How It Works */}
-      <section class="quick-offers">
-        <h2>How It Works</h2>
-        <p class="subtext">From idea to a ready-to-submit plan, in 4 simple steps.</p>
+      <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
+        <img src={Risk} alt="Rejection Risk Check" />
+        <h3>We Draft Your Plan</h3>
+        <p>Our experts create your topic shortlist, map methods, and prepare a timeline that fits your deadlines.</p>
+      </div>
 
-        <div class="offers">
-          <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
-            <img src={AI} alt="AI + Plagiarism Report" />
-            <h3>Tell Us Your Goal</h3>
-            <p>Share your research stage, topic interests, and university requirements. This helps us align your plan with academic and practical expectations.</p>
-          </div>
+      <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
+        <img src={PAY} alt="Rejection Risk Check" />
+        <h3>Quotation & Payment</h3>
+        <p>Detailed Quotation and Transparent Payment Terms for Seamless Project Execution and Client Satisfaction.</p>
+      </div>
 
-          <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
-            <img src={Risk} alt="Rejection Risk Check" />
-            <h3>We Draft Your Plan</h3>
-            <p>Our experts create your topic shortlist, map methods, and prepare a timeline that fits your deadlines.</p>
-          </div>
+      <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
+        <img src={Journal} alt="Journal Match Pro" />
+        <h3>You Review & Refine </h3>
+        <p>We carefully walk you through the draft, gather feedback, and fine-tune every section until it’s ready.</p>
+      </div>
 
-          <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
-            <img src={PAY} alt="Rejection Risk Check" />
-            <h3>Quotation & Payment</h3>
-            <p>Detailed Quotation and Transparent Payment Terms for Seamless Project Execution and Client Satisfaction.</p>
-          </div>
+      <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
+        <img src={FINAL} alt="Journal Match Pro" />
+        <h3>Get Your Final Pack</h3>
+        <p>Receive a submission-ready document (DOCX/PDF) with references, diagrams, timelines, and an ethics checklist.</p>
+      </div>
+    </div>
+    <div class="help-box">
+      <a
+        href="https://wa.me/+918093778526"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <button class="expert-btn" style={{ fontSize: "20px", fontWeight: "bold" }}>Start My Research Plan</button>
+      </a>
+    </div>
+  </section>
 
-          <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
-            <img src={Journal} alt="Journal Match Pro" />
-            <h3>You Review & Refine </h3>
-            <p>We carefully walk you through the draft, gather feedback, and fine-tune every section until it’s ready.</p>
-          </div>
-
-          <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
-            <img src={FINAL} alt="Journal Match Pro" />
-            <h3>Get Your Final Pack</h3>
-            <p>Receive a submission-ready document (DOCX/PDF) with references, diagrams, timelines, and an ethics checklist.</p>
-          </div>
-        </div>
-        <div class="help-box">
-          <a
-            href="https://wa.me/+918093778526"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <button class="expert-btn" style={{ fontSize: "20px", fontWeight: "bold" }}>Start My Research Plan</button>
-          </a>
-        </div>
-      </section>
-
-      {/* pricing */}
+  {/* pricing */ }
       <section className="pricing-section">
         <div className="pricing-head">
           <h2>Packages & Pricing</h2>
@@ -229,11 +229,11 @@ const Research = () => {
         <h2 className="services-title">Related Services</h2>
         <div className="services-links">
           <Link to="/data">Data Services</Link>
-          <br/>
+          <br />
           <Link to="/editorial">Editorial Support</Link>
-          <br/>
+          <br />
           <Link to="/publication">Publication Support</Link>
-          <br/>
+          <br />
           <Link to="/academic">Academic Presentation</Link>
         </div>
 
@@ -253,7 +253,7 @@ const Research = () => {
         </a>
       </section>
 
-    </div>
+    </div >
 
   );
 };

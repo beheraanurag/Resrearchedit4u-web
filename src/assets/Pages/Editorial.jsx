@@ -42,7 +42,7 @@ const Editorial = () => {
 
           <div className="btn-wrapper">
             <button className="cta-btn">Get Started</button>
-            <button className="cta-btn secondary">View All Services</button>
+            <button className="cta-btn secondary">See Samples</button>
           </div>
         </div>
 

@@ -27,7 +27,7 @@ const Data = () => {
         <div className="content">
           <h2>Expert Data Analysis Services for Researchers, PhD Scholars, and Academics.</h2>
           <p className="description">
-            Unlock the power of data-driven insights with professional support tailored to your research needs.          </p>
+            Unlock the power of data-driven insights with professional support tailored to your research needs.   </p>
 
           <ul className="feature-list">
             <li>
@@ -45,7 +45,7 @@ const Data = () => {
 
           <div className="btn-wrapper">
             <button className="cta-btn">Get Started</button>
-            <button className="cta-btn secondary">View All Services</button>
+            <button className="cta-btn secondary">See Samples</button>
           </div>
         </div>
 

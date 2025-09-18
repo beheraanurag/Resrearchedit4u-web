@@ -7,7 +7,7 @@ import FINAL from '../images/school.webp';
 import PAY from '../images/payment.webp';
 import Risk from '../images/blueprint.webp';
 import { FaCheck, FaWhatsapp } from "react-icons/fa";
-import { servicesData, faqs, packages } from "../content/editorialdata";
+import { servicesData, faqs, packages } from "../content/publication";
 import { Link } from "react-router-dom";
 
 const Publication = () => {
@@ -24,25 +24,25 @@ const Publication = () => {
       {/* Hero section Over-view */}
       <section className="smart-submission">
         <div className="content">
-          <h2>Expert Editorial Support for Research and Publication Success.</h2>
+          <h2>Publish with Integrity, Clarity & Confidence.</h2>
           <p className="description">
-            Expert Editorial Support for Research & Publication Success, Ensuring Clarity, Accuracy, and Impact.  </p>
+            End-to-end publication support covering journal selection, manuscript formatting, peer review responses, open access options, and transparent publication fees. </p>
 
           <ul className="feature-list">
             <li>
               <FaCheck className="check-icon" />
-              Improve clarity and logical flow </li>
+              Scopus/WoS guidance  </li>
             <li>
               <FaCheck className="check-icon" />
-              Format to APA / IEEE / MLA / journal </li>
+             UGC-aligned  </li>
             <li>
               <FaCheck className="check-icon" />
-              Eliminate plagiarism & humanize AI text </li>
+              Ethical & transparent</li>
           </ul>
 
           <div className="btn-wrapper">
             <button className="cta-btn">Get Started</button>
-            <button className="cta-btn secondary">View All Services</button>
+            <button className="cta-btn secondary">See Samples</button>
           </div>
         </div>
 
@@ -61,20 +61,20 @@ const Publication = () => {
         <div className="trust-cards" >
           <div className="trust-card-circle" >
             <div className="trust-icon" >🏆</div>
-            <h3> Expert Academic Editors </h3>
-            <p>PhD-qualified specialists ensuring clarity, accuracy, and scholarly excellence</p>
+            <h3> Scholars’ Publication Journey </h3>
+            <p>Guidance for PhD and Master’s scholars publishing successfully.</p>
           </div>
 
           <div className="trust-card-circle" >
             <div className="trust-icon">✅</div>
-            <h3>Journal-Ready Formatting</h3>
-            <p>APA, MLA, IEEE, or custom styles tailored to submission requirements.</p>
+            <h3>Researcher Support Services</h3>
+            <p>Helping independent researchers and lab teams achieve compliance.</p>
           </div>
 
           <div className="trust-card-circle" >
             <div className="trust-icon">📈</div>
-            <h3>Secure & Trusted Process </h3>
-            <p>Ethical editing with strict confidentiality and NDA-backed safeguards.</p>
+            <h3>Faculty Journal Submissions </h3>
+            <p>Assisting faculty with Scopus and UGC journal submissions.</p>
           </div>
         </div>
         <div className="trust-stats">
@@ -124,31 +124,31 @@ const Publication = () => {
         <div class="offers">
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={AI} alt="AI + Plagiarism Report" />
-            <h3>Upload Manuscript</h3>
-            <p>Share your draft and style guide with experts for accurate, polished, publication-ready work.</p>
+            <h3>Consultation & Manuscript Intake</h3>
+            <p>Share your draft, domain, and target journal publication preferences (e.g., Scopus journal, UGC journals, open access or subscription). We align on scope and feasibility.</p>
           </div>
 
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={Risk} alt="Rejection Risk Check" />
-            <h3>Expert Editing</h3>
-            <p>Substantive, language, formatting edits ensure clarity, precision, and compliance with academic journal standards.</p>
+            <h3>Journal Match & Plan</h3>
+            <p>Receive a curated shortlist (3–5) with scope fit, indexing, indicative timelines, and APC notes. We lock your primary/backup targets and the publication process plan.</p>
           </div>
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={PAY} alt="Rejection Risk Check" />
-            <h3>Quotation & Payment</h3>
-            <p>Detailed Quotation and Transparent Payment Terms for Seamless Project Execution and Client Satisfaction.</p>
+            <h3>Transparent Quote & Payment</h3>
+            <p>You receive a clear plan and timeline. Our fee is always separate from any journal publication fees/APCs. Work begins after payment confirmation.</p>
           </div>
 
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={Journal} alt="Journal Match Pro" />
-            <h3>Plagiarism Check </h3>
-            <p>Optional Turnitin-style report available to check originality, ensuring plagiarism-free, ethical academic submissions.</p>
+            <h3>Formatting & Compliance</h3>
+            <p>We prepare your manuscript to the chosen journal’s template (structure, references, figures, ethics statements). If language polishing is needed, we coordinate with Editorial Support.</p>
           </div>
 
           <div class="offer-card" style={{ border: "none", background: "#eff2fb" }}>
             <img src={FINAL} alt="Journal Match Pro" />
-            <h3>Final Delivery</h3>
-            <p>We deliver a polished, submission-ready manuscript tailored to journal guidelines and reviewer expectations.</p>
+            <h3>Submission & Checks</h3>
+            <p>We prepare portal materials (cover letter, keywords, suggested reviewers where appropriate), validate files, and complete the submission with a requirements checklist.</p>
           </div>
         </div>
         <div class="help-box">

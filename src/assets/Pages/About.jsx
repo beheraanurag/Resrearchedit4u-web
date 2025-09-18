@@ -4,6 +4,11 @@ import aboutImg from "../images/aboutimg.webp";
 import Professionl from "../images/professionl.webp";
 import Discipline from "../images/discipline.webp";
 import Best from "../images/best.webp";
+import { FaBookOpen, FaChartBar, FaCheckCircle, FaClipboardList, FaGraduationCap, FaPenFancy, FaStopwatch, FaWhatsapp } from "react-icons/fa";
+import { MdAccessTime } from 'react-icons/md';
+import { BsCashCoin } from 'react-icons/bs';
+import { HiOutlineUserGroup } from 'react-icons/hi';
+
 
 const stats = [
   { value: 4500, label: "Papers Edited" },
@@ -11,6 +16,29 @@ const stats = [
   { value: 2800, label: "Literature Reviews" },
   { value: 950, label: "Theses Guided" },
   { value: 1700, label: "PhD Scholars Helped" },
+];
+const services = [
+  {
+    icon: FaStopwatch,
+    title: "Faster Results Turnaround",
+    description: "Swift delivery timelines that respect your deadlines without compromising on accuracy.",
+  },
+  {
+    icon: FaCheckCircle,
+    title: "Rigorous Quality Control",
+    description: "Multi-level reviews by senior editors and subject-matter experts for unmatched precision.",
+  },
+  {
+    icon: HiOutlineUserGroup,
+    title: "Dedicated Client Interaction",
+    description: "One-on-one guidance with clear updates, ensuring your voice and goals are never lost.",
+  },
+  {
+    icon: BsCashCoin,
+    title: "Reliable Transparent Pricing",
+    description: "Straightforward costs with no hidden charges — you always know what you’re paying for.",
+  },
+
 ];
 
 const AboutUs = () => {
@@ -53,14 +81,12 @@ const AboutUs = () => {
           </div>
           <div className="about-text-content">
             <p>
-              Our founders lived the academic grind — leaving halfway not by choice but by circumstance.
+              Our founders lived the academic grind  leaving halfway not by choice but by circumstance.
               Harassment. Toxic supervision. Abandoned dreams. What hurt most? The absence of support,
               guidance, and a safe space for scholars.
             </p>
             <p>
-              ResearchEdit4U was born from that pain. We are not just an editing service. We are a
-              movement — built by scholars, for scholars. We understand what’s at stake: your research,
-              your career, your well-being.
+              ResearchEdit4U was born from that pain. We are not just an editing service, but a movement built by scholars, for scholars, with a deep commitment to clarity, credibility, and impact. We understand what’s at stake: your research, your career, your well-being, and your future opportunities. Our mission is to empower researchers with guidance, tools, and professional support that help transform ideas into publishable, high-quality work recognized worldwide.
             </p>
           </div>
         </div>
@@ -120,14 +146,21 @@ const AboutUs = () => {
       </section>
 
       {/* Section: How We Work */}
-      <section className="about-card highlighted-section">
-        <h2>How We Work — And Why It’s Better</h2>
-        <ul>
-          <li>🚀 Faster Turnaround — Without sacrificing quality</li>
-          <li>🧠 Rigorous Quality Control — Senior editors & domain experts</li>
-          <li>🤝 Personalized Communication — Tailored to your project</li>
-          <li>💰 Transparent Pricing — No hidden fees or surprises</li>
-        </ul>
+      <section className="why-choose-us" style={{ padding: "15px" }}>
+        <h2 style={{ marginBottom: "20px" }}>Why Choose Us</h2>
+        <div className="service-cards">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div className="service-card" key={index}>
+                <h3 className="service-icon"><Icon /></h3>
+                <h3>{service.title}</h3>
+                <h4>{service.subtitle}</h4>
+                <p>{service.description}</p>
+              </div>
+            );
+          })}
+        </div>
       </section>
 
       {/* Section: Our Philosophy */}
