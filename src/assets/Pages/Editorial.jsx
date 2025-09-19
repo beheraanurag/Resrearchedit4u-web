@@ -68,7 +68,7 @@ const Editorial = () => {
           <div className="trust-card-circle" >
             <div className="trust-icon">✅</div>
             <h3>Journal-Ready Formatting</h3>
-            <p>APA, MLA, IEEE, or custom styles tailored to submission requirements.</p>
+            <p>APA, MLA, IEEE, or custom styles as per submission requirements.</p>
           </div>
 
           <div className="trust-card-circle" >
