@@ -49,11 +49,12 @@ const Contact = () => {
     }
 
     try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       console.log("⏳ Sending data to server...");
-      console.log("🌐 API Endpoint: http://localhost:5000/api/contact");
+      console.log("🌐 API Endpoint:", `${apiUrl}/api/contact`);
       
       const startTime = Date.now();
-      const response = await axios.post("http://localhost:5000/api/contact", data, {
+      const response = await axios.post(`${apiUrl}/api/contact`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -87,99 +88,110 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      <h1 className="contact-h1">Get In Touch</h1>
-      <h2 className="contact-header">
-        We're here to help! Reach out using the form below or via our contact details.
-      </h2>
+      <div className="contact-header">
+        <h1>Get In Touch</h1>
+        <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+      </div>
 
       <div className="contact-content">
-        <div className="contact-form">
-          <h3>Send Us a Message</h3>
+        <div className="contact-info">
+          <div className="info-item">
+            <h3>📧 Email</h3>
+            <p>info@researchedit.in</p>
+          </div>
+          <div className="info-item">
+            <h3>📞 Phone</h3>
+            <p>+91 8093778526</p>
+          </div>
+          <div className="info-item">
+            <h3>📍 Address</h3>
+            <p>Bhubaneswar, Odisha, India</p>
+          </div>
+        </div>
+
+        <form className="contact-form" onSubmit={sendEmail}>
           {submitMessage && (
             <div className={`submit-message ${submitMessage.includes('successfully') ? 'success' : 'error'}`}>
               {submitMessage}
             </div>
           )}
-          <form onSubmit={sendEmail} encType="multipart/form-data">
-            <label>Your Name</label>
-            <input 
-              type="text" 
-              name="name" 
-              value={formData.name}
-              onChange={handleChange}
-              required 
-            />
 
-            <label>Email Address</label>
-            <input 
-              type="email" 
-              name="email" 
-              value={formData.email}
-              onChange={handleChange}
-              required 
-            />
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="name">Your Name *</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
+            </div>
+          </div>
 
-            <label>Phone Number (Optional)</label>
-            <input 
-              type="tel" 
-              name="phone" 
+          <div className="form-group">
+            <label htmlFor="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
               value={formData.phone}
               onChange={handleChange}
             />
+          </div>
 
-            <label>Message</label>
-            <textarea 
-              name="message" 
-              rows="8" 
+          <div className="form-group">
+            <label htmlFor="message">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
               value={formData.message}
               onChange={handleChange}
-              required 
+              placeholder="Tell us about your research needs, questions, or how we can help you..."
+              required
             />
-
-            <label>Attach File (Optional)</label>
-            <input 
-              type="file" 
-              name="file" 
-              onChange={handleFileChange}
-              accept=".pdf,.doc,.docx,.txt"
-            />
-
-            <button type="submit" disabled={isSubmitting} className={isSubmitting ? "loading" : ""}>
-              {isSubmitting ? (
-                <>
-                  <span className="spinner"></span>
-                  Sending Email...
-                </>
-              ) : (
-                "Send Message"
-              )}
-            </button>
-          </form>
-        </div>
-
-        <div className="contact-info">
-          <h3>Our Address</h3>
-          <p>Bhubaneswar, Odisha</p>
-
-          <h3>Call Us</h3>
-          <a href="tel:+918093778526">+91 8093778526</a>
-
-          <h3>Email Us</h3>
-          <a href="mailto:info@researchedit.in">info@researchedit.in</a>
-
-          <h3>Find Us Here</h3>
-          <div className="contact-map">
-            <iframe
-              title="Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14722.633168697058!2d85.8198796!3d20.2960581!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909e1e9c0f2ef%3A0x29b7ea39eafeb8f5!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v171234567890"
-              width="100%"
-              height="280"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
           </div>
-        </div>
+
+          <div className="form-group">
+            <label htmlFor="file">Attach Files (Optional)</label>
+            <input
+              type="file"
+              id="file"
+              name="file"
+              onChange={handleFileChange}
+              accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
+            />
+            <small>You can attach research documents, drafts, or reference materials</small>
+          </div>
+
+          <button 
+            type="submit" 
+            disabled={isSubmitting} 
+            className={`submit-btn ${isSubmitting ? "loading" : ""}`}
+          >
+            {isSubmitting ? (
+              <>
+                <span className="spinner"></span>
+                Sending Email...
+              </>
+            ) : (
+              "Send Message"
+            )}
+          </button>
+        </form>
       </div>
     </div>
   );
