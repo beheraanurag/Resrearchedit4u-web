@@ -1,0 +1,19 @@
+name: researchedit4u-backend
+services:
+- name: api
+  source_dir: /
+  github:
+    repo: beheraanurag/Resrearchedit4u-web
+    branch: master
+  run_command: npm start
+  build_command: npm install
+  environment_slug: node-js
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  envs:
+  - key: NODE_ENV
+    value: production
+  - key: EMAIL_USER
+    value: behera.anurag28@gmail.com
+  - key: EMAIL_PASS
+    value: drirpllbzwkbjskl
