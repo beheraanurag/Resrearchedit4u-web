@@ -49,7 +49,7 @@ const Contact = () => {
     }
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://resrearchedit4u.vercel.app';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://resrearchedit4u-backend.onrender.com';
       console.log("⏳ Sending data to server...");
       console.log("🌐 API Endpoint:", `${apiUrl}/api/contact`);
       

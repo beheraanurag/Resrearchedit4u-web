@@ -109,7 +109,7 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
     });
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://resrearchedit4u.vercel.app';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://resrearchedit4u-backend.onrender.com';
       const response = await axios.post(`${apiUrl}/api/service-booking`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
