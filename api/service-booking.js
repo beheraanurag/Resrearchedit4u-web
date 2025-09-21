@@ -1,5 +1,5 @@
-import nodemailer from "nodemailer";
-import multer from "multer";
+const nodemailer = require("nodemailer");
+const multer = require("multer");
 
 // Configure multer for file uploads
 const upload = multer({ 
