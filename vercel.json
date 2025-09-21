@@ -7,15 +7,30 @@
       "config": {
         "distDir": "dist"
       }
+
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+
     }
   ],
   "routes": [
     {
+
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+
       "src": "/(.*)",
       "dest": "/"
     }
   ],
   "env": {
+    "NODE_ENV": "production"
+  }
+}
     "VITE_API_URL": "https://your-backend-url.vercel.app"
   }
 }

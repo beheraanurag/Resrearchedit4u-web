@@ -1,0 +1,14 @@
+# Vercel Environment Variables
+# Set these in your Vercel dashboard under Settings > Environment Variables
+
+# Email Configuration (Required for API functions)
+EMAIL_USER=your_email@gmail.com
+EMAIL_PASS=your_app_password
+
+# Frontend Configuration
+VITE_API_URL=https://your-project.vercel.app
+
+# Example values:
+# EMAIL_USER=behera.anurag28@gmail.com
+# EMAIL_PASS=drirpllbzwkbjskl
+# VITE_API_URL=https://researchedit4u-web.vercel.app
