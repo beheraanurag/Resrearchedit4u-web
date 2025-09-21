@@ -8,6 +8,7 @@ import { FaBookOpen, FaChartBar, FaCheckCircle, FaClipboardList, FaGraduationCap
 import { MdAccessTime } from 'react-icons/md';
 import { BsCashCoin } from 'react-icons/bs';
 import { HiOutlineUserGroup } from 'react-icons/hi';
+import { Link } from 'react-router-dom';
 
 
 const stats = [
@@ -186,9 +187,11 @@ const AboutUs = () => {
           Whether you're polishing a paper, preparing your thesis defence, or just trying
           to survive the next deadline — we’re here. Because your research deserves to be heard.
         </p>
-        <a href="Hy">
+        {/* <Link to="/process">
           <button className="cta-button">Get Started</button>
-        </a>
+        </Link> */}
+        <Link to="/services" className="cta-button">Get Started</Link>
+
       </div>
     </div>
   );

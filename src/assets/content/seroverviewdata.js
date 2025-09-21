@@ -292,7 +292,7 @@ const summary = [
     icon: FaClipboardList,
     title: "Research Planning",
     subtitle: "What We Need from You:",
-    para: ["Research topic or idea", "University/research guidelines", "Project timeline and degree level"],
+    para: ["Research topic or idea", "University/research guidelines", "Detailed project timeline and academic degree level requirements"],
     description: "What You Get:",
     content: ["Validated research topic", "Defined research objectives", "Structured methodology outline"],
 
@@ -445,7 +445,7 @@ const cstudies = [
     Solution: "Solution",
     Solutiondesc: "Academic Presentation Design + Speech Coaching.",
     Result: "Result",
-    Resultsdesc: "Presentation ranked among top 3 in the conference."
+    Resultsdesc: "Presentation ranked top 3 in the conference."
   },
 
 ];
