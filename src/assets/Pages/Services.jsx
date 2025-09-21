@@ -7,14 +7,30 @@ import { servicesData, faqs, steps, services, summary, testimonials, cstudies } 
 import slide3 from '../images/slide3.webp';
 import Slider from "react-slick";
 import ReactCountryFlag from "react-country-flag";
+import ServiceBookingForm from "./ServiceBookingForm";
 
 
 const Services = () => {
   const [activeTab, setActiveTab] = useState("Research Planning");
   const [openIndex, setOpenIndex] = useState(null);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedServiceCategory, setSelectedServiceCategory] = useState("");
 
   const toggleFAQ = (index) => {
     setOpenIndex(index === openIndex ? null : index);
+  };
+
+  const handleBookService = (service, serviceCategory) => {
+    setSelectedService(service);
+    setSelectedServiceCategory(serviceCategory);
+    setShowBookingForm(true);
+  };
+
+  const closeBookingForm = () => {
+    setShowBookingForm(false);
+    setSelectedService("");
+    setSelectedServiceCategory("");
   };
 
   const settings = {
@@ -138,13 +154,15 @@ const Services = () => {
               </ul>
               <p className="price">Starts at only {service.price}</p>
               <div className="btn-group">
-                <a href={service.bookLink} target="_blank" rel="noopener noreferrer">
-                  <button className="book">Book Now</button>
-                </a>
+                <button 
+                  className="book" 
+                  onClick={() => handleBookService(service.title, activeTab)}
+                >
+                  Book Now
+                </button>
                 <a href={service.pdfLink} download>
                   <button className="sample">Download Sample</button>
                 </a>
-
               </div>
             </div>
           ))}
@@ -252,6 +270,14 @@ const Services = () => {
         </a>
       </section>
 
+      {/* Service Booking Modal */}
+      {showBookingForm && (
+        <ServiceBookingForm
+          service={selectedService}
+          serviceCategory={selectedServiceCategory}
+          onClose={closeBookingForm}
+        />
+      )}
 
     </>
   );
