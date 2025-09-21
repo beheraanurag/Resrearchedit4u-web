@@ -1,13 +1,4 @@
 const nodemailer = require("nodemailer");
-const multer = require("multer");
-
-// Configure multer for file uploads
-const upload = multer({ 
-  storage: multer.memoryStorage(),
-  limits: {
-    fileSize: 10 * 1024 * 1024 // 10MB limit
-  }
-});
 
 // Email transporter configuration
 const createTransporter = () => {
@@ -300,7 +291,9 @@ export default async function handler(req, res) {
       requirements, 
       message 
     } = req.body;
-    const file = req.file;
+    // Note: File uploads in Vercel serverless functions need special handling
+    // For now, we'll skip file attachments
+    const file = null;
 
     console.log(`👤 Client: ${name}`);
     console.log(`📧 Email: ${email}`);
