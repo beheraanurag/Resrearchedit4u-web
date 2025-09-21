@@ -1,5 +1,5 @@
-const nodemailer = require("nodemailer");
-const multer = require("multer");
+import nodemailer from "nodemailer";
+import multer from "multer";
 
 // Configure multer for file uploads
 const upload = multer({ 
@@ -11,7 +11,7 @@ const upload = multer({
 
 // Email transporter configuration
 const createTransporter = () => {
-  return nodemailer.createTransporter({
+  return nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.EMAIL_USER,
