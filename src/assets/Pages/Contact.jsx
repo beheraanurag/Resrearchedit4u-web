@@ -49,7 +49,7 @@ const Contact = () => {
     }
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+      const apiUrl = import.meta.env.VITE_API_URL || 'https://resrearchedit4u-7zi331mxi-anurag-beheras-projects.vercel.app';
       console.log("⏳ Sending data to server...");
       console.log("🌐 API Endpoint:", `${apiUrl}/api/contact`);
       
