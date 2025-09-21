@@ -14,6 +14,6 @@ services:
   - key: NODE_ENV
     value: production
   - key: EMAIL_USER
-    value: behera.anurag28@gmail.com
+    value: researcheditu@gmail.com
   - key: EMAIL_PASS
-    value: drirpllbzwkbjskl
+    value: ffsibzywxrggcbrq

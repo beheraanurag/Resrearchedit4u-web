@@ -25,8 +25,8 @@
 ### Step 3: Set Environment Variables
 In Railway dashboard, go to Variables tab and add:
 ```
-EMAIL_USER=behera.anurag28@gmail.com
-EMAIL_PASS=drirpllbzwkbjskl
+EMAIL_USER=researcheditu@gmail.com
+EMAIL_PASS=ffsibzywxrggcbrq
 NODE_ENV=production
 PORT=5000
 ```
@@ -55,8 +55,8 @@ Update your frontend API URLs to use the Railway backend URL.
 ### Step 3: Environment Variables
 Add in Render dashboard:
 ```
-EMAIL_USER=behera.anurag28@gmail.com
-EMAIL_PASS=drirpllbzwkbjskl
+EMAIL_USER=researcheditu@gmail.com
+EMAIL_PASS=ffsibzywxrggcbrq
 NODE_ENV=production
 ```
 

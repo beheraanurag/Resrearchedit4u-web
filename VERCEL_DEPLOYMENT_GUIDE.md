@@ -62,8 +62,8 @@ In your Vercel dashboard:
 
 ### Required Variables:
 ```
-EMAIL_USER = behera.anurag28@gmail.com
-EMAIL_PASS = drirpllbzwkbjskl
+EMAIL_USER = researcheditu@gmail.com
+EMAIL_PASS = ffsibzywxrggcbrq
 NODE_ENV = production
 ```
 

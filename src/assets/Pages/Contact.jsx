@@ -107,6 +107,23 @@ const Contact = () => {
             <h3>📍 Address</h3>
             <p>Bhubaneswar, Odisha, India</p>
           </div>
+          
+          {/* Map Section */}
+          <div className="map-section">
+            <h3>Find Us on Map</h3>
+            <div className="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.123456789!2d85.8245!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d2d2d2d2%3A0x2d2d2d2d2d2d2d2d!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                width="100%"
+                height="250"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="ResearchEdit4U Location"
+              ></iframe>
+            </div>
+          </div>
         </div>
 
         <form className="contact-form" onSubmit={sendEmail}>
