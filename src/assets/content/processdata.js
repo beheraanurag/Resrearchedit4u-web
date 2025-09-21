@@ -44,7 +44,7 @@ const servicesData = [
             "Provide supervisor-ready brief",
         ],
         price: "₹2,999",
-        exploreHref: "/services#research-planning",
+        exploreHref: "/research#research-planning",
         sampleHref: "/samples/research-planning-sample.pdf",
     },
     {
@@ -58,7 +58,7 @@ const servicesData = [
             "Explain results clearly",
         ],
         price: "₹4,999",
-        exploreHref: "/services#data-services",
+        exploreHref: "/data#data-services",
         sampleHref: "/samples/data-services-sample.pdf",
     },
     {
@@ -72,7 +72,7 @@ const servicesData = [
             "Suggest reviewer-style fixes",
         ],
         price: "₹4,999",
-        exploreHref: "/services#editorial-support",
+        exploreHref: "/editorial#editorial-support",
         sampleHref: "/samples/editorial-support-sample.pdf",
     },
     {
@@ -86,7 +86,7 @@ const servicesData = [
             "Prepare letters and responses",
         ],
         price: "₹8,999",
-        exploreHref: "/services#publication-support",
+        exploreHref: "/publication#publication-support",
         sampleHref: "/samples/publication-support-sample.pdf",
     },
     {
@@ -100,7 +100,7 @@ const servicesData = [
             "Provide speaker notes",
         ],
         price: "₹3,999",
-        exploreHref: "/services#academic-presentations",
+        exploreHref: "/academic#academic-presentations",
         sampleHref: "/samples/academic-presentations-sample.pdf",
     },
     {
