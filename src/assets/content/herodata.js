@@ -20,7 +20,8 @@ const slidesData = [
     img: slide4,
     bgClass: "slide-bg3",
     pdfLink: PDF1,
-    bookLink: "https://yourwebsite.com/book-ai-plagiarism"
+    bookLink: "https://yourwebsite.com/book-ai-plagiarism",
+    serviceCategory: "Research Planning"
   },
   {
     title: "Abstract, Introduction and Manuscript Expert Help Anytime",
@@ -34,7 +35,8 @@ const slidesData = [
     img: slide3,
     bgClass: "slide-bg1",
     pdfLink: PDF2,
-    bookLink: "https://yourwebsite.com/book-manuscript-help"
+    bookLink: "https://yourwebsite.com/book-manuscript-help",
+    serviceCategory: "Writing & Editing"
   },
   {
     title: "Graphical Abstracts and Figures That Impress Editors",
@@ -48,7 +50,8 @@ const slidesData = [
     img: slide2,
     bgClass: "slide-bg2",
     pdfLink: PDF3,
-    bookLink: "https://yourwebsite.com/book-graphical-abstracts"
+    bookLink: "https://yourwebsite.com/book-graphical-abstracts",
+    serviceCategory: "Design & Visualization"
   },
   {
     title: "Research Paper Editing & Journals Submission Support",
@@ -62,7 +65,8 @@ const slidesData = [
     img: slide1,
     bgClass: "slide-bg4",
     pdfLink: PDF4,
-    bookLink: "https://yourwebsite.com/book-journal-submission"
+    bookLink: "https://yourwebsite.com/book-journal-submission",
+    serviceCategory: "Publication Support"
   },
 ];
 export default slidesData;
