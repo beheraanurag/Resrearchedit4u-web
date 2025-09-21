@@ -55,6 +55,7 @@ const Contact = () => {
       
       const startTime = Date.now();
       const response = await axios.post(`${apiUrl}/api/contact`, data, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/contact`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

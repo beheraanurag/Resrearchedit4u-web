@@ -109,8 +109,11 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
     });
 
     try {
+
       const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       const response = await axios.post(`${apiUrl}/api/service-booking`, data, {
+
+      const response = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/service-booking`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
