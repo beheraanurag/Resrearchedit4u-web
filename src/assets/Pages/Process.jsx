@@ -10,6 +10,63 @@ const Process = () => {
     return (
 
         <section className="process-section">
+            {/* <section className="subjects-wrapper">
+                <div className="subjects-container">
+                    <h2 className="subjects-title">Subjects We Handle</h2>
+                    <p className="subjects-desc">
+                        Comprehensive academic support across multiple disciplines
+                    </p>
+
+                    <div className="subjects-grid">
+                        {[
+                            "STEM",
+                            "Social Science",
+                            "Arts & Humanities",
+                            "Literature",
+                            "Business & Management",
+                            "Law",
+                            "Finance",
+                            "Education Studies",
+                        ].map((item, index) => (
+                            <div key={index} className="subject-card">
+                                <span className="circle-icon">📘</span>
+                                <p>{item}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section> */}
+            {/* offer section */}
+            <section className="offer">
+                <h1>Expert editing ensures clarity, precision, and success in global publications. Upto 50% OFF! 🎉 Book Now!</h1>
+            </section>
+            { /* Subjects We Handle Section */}
+            <section className="subjects-wrapper">
+                <div className="subjects-container">
+                    <h2 className="subjects-title">Subjects We Handle</h2>
+                    <p className="subjects-sub">High-quality academic support across all major fields</p>
+
+                    <div className="subjects-grid">
+                        {[
+                            { name: "STEM", icon: "🧪" },
+                            { name: "Social Science", icon: "🌍" },
+                            { name: "Arts & Humanities", icon: "🎨" },
+                            { name: "Literature", icon: "📚" },
+                            { name: "Business & Management", icon: "💼" },
+                            { name: "Law", icon: "⚖️" },
+                            { name: "Finance", icon: "💰" },
+                            { name: "Education Studies", icon: "🎓" }
+                        ].map((item, index) => (
+                            <div key={index} className="subject-card">
+                                <div className="icon-circle">{item.icon}</div>
+                                <p>{item.name}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Services Section */}
             <section className="services">
                 <div className="container">
                     <h2 className="title">Our Popular Services</h2>
@@ -45,10 +102,6 @@ const Process = () => {
                 </div>
             </section>
 
-            {/* offer section */}
-            <section className="offer">
-                <h1>Expert editing ensures clarity, precision, and success in global publications. Flat 50% OFF! 🎉 Book Now!</h1>
-            </section>
 
             {/* Simple Process */}
             <h2 >A Simple Process with Powerful Results</h2>
@@ -95,14 +148,10 @@ const Process = () => {
                         <Link to="/about">Learn More &gt;</Link>
                     </div>
                 </div>
-
                 <div className="trust-stats">
                     4051+ researchers helped &bull; 200+ papers published &bull; 95% satisfaction rate
                 </div>
-
             </section>
-
-
 
             {/* QuickOffers section */}
             <section class="quick-offers">
@@ -145,8 +194,6 @@ const Process = () => {
 
             </section>
         </section>
-
-
     );
 };
 

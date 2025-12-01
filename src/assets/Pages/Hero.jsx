@@ -1,7 +1,8 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import '../style/style.css';
 import slidesData from "../content/herodata";
 
@@ -14,7 +15,8 @@ const HeroSlider = () => {
         delay: 10000,
         disableOnInteraction: false,
       }}
-      modules={[Autoplay]}
+      navigation={true}
+      modules={[Autoplay, Navigation]}
     >
       {slidesData.map((slide, index) => (
         <SwiperSlide key={index}>
@@ -23,10 +25,10 @@ const HeroSlider = () => {
               <h1>{slide.title}</h1>
               <p>{slide.desc}</p>
 
-              {/* Separate buttons */}
               <a href={slide.pdfLink} download>
                 <button className="explore-btn">See Sample</button>
               </a>
+
               <a href={slide.bookLink} target="_blank" rel="noopener noreferrer">
                 <button className="explore-btn">Book Now</button>
               </a>
@@ -37,8 +39,13 @@ const HeroSlider = () => {
                 ))}
               </ul>
             </div>
+
             <div className="hero-right">
-              <img src={slide.img} alt={`Slide ${index + 1}`} className="hero-img" />
+              <img
+                src={slide.img}
+                alt={`Slide ${index + 1}`}
+                className="hero-img"
+              />
             </div>
           </section>
         </SwiperSlide>

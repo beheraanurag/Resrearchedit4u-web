@@ -152,7 +152,7 @@ const Services = () => {
       </div>
       {/* Know ur Process */}
       <section className="process-section">
-        <h2 style={{ marginBottom: "40px" }}>Know our Process </h2>
+        <h2 style={{ marginBottom: "30px" }}>Know our Process </h2>
         <div className="steps-grid">
           {steps.map((step, idx) => (
             <div key={idx} className="step-card">
@@ -165,7 +165,7 @@ const Services = () => {
         {/* Testimonials */}
       </section>
       <section className="testimonial-section">
-        <h2 className="testimonial-heading">Testimonials</h2>
+        <h2 className="testimonial-heading" style={{ marginTop: "30px" }}>Testimonials</h2>
         <Slider {...settings}>
           {testimonials.map((t, index) => (
             <div className="testimonial-slide" key={index}>
@@ -233,7 +233,6 @@ const Services = () => {
       </section>
 
       {/* Section: Get In Touch */}
-
       <section className="related-services">
         <h2 className="services-title">Ready to advance your research journey ?</h2>
         <p className="services-text">

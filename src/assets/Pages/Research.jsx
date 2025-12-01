@@ -163,7 +163,7 @@ const Research = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <button class="expert-btn" style={{ fontSize: "20px", fontWeight: "bold" }}>Start My Research Plan</button>
+        <button class="expert-btn" style={{ fontSize: "15px", fontWeight: "bold" }}>Start My Research Plan</button>
       </a>
     </div>
   </section>
@@ -208,7 +208,7 @@ const Research = () => {
       </section>
 
       <div className="faq-container">
-        <h2 className="faq-title">Frequently Asked Questions</h2>
+        <h2 className="faq-title" style={{marginBottom:"20px"}}>Frequently Asked Questions</h2>
         {faqs.map((faq, index) => (
           <div key={index} className="faq-item">
             <div className="faq-header">

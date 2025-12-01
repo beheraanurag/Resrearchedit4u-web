@@ -147,8 +147,8 @@ const AboutUs = () => {
       </section>
 
       {/* Section: How We Work */}
-      <section className="why-choose-us" style={{ padding: "15px" }}>
-        <h2 style={{ marginBottom: "20px" }}>Why Choose Us</h2>
+      <section className="why-choose-us" style={{ padding: "10px" }}>
+        <h2 style={{ marginBottom: "10px" }}>Why Choose Us</h2>
         <div className="service-cards">
           {services.map((service, index) => {
             const Icon = service.icon;
@@ -191,7 +191,6 @@ const AboutUs = () => {
           <button className="cta-button">Get Started</button>
         </Link> */}
         <Link to="/services" className="cta-button">Get Started</Link>
-
       </div>
     </div>
   );
