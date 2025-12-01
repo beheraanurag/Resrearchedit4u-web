@@ -14,7 +14,7 @@ const slidesData = [
     features: [
       "Rewrite + De-plag in 24 hrs",
       "Human editors, no bots",
-      "Trusted by 5M+ researchers globally",
+      "Trusted by 5M+ researchers ",
       "Affordable check starts at ₹500",
     ],
     img: slide4,
@@ -28,9 +28,9 @@ const slidesData = [
     desc: "Struggling with writing flow, structure, or clarity? We help you write better without losing your voice expert support only.",
     features: [
       "Complete guidance by subject ",
-      "Logical flow + correct presentation",
+      "Logical flow presentation",
       "1:1 consult with PhD specialists",
-      "Track changes + expert comments",
+      "Track changes & comments"
     ],
     img: slide3,
     bgClass: "slide-bg1",
