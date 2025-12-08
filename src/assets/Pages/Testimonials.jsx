@@ -2,8 +2,8 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../style/style.css";
 import testimonials from "../content/testimonialsdata";
+import { Card, CardContent } from "@/components/ui/card";
 
 const TestimonialsSlider = () => {
   const settings = {
@@ -21,18 +21,24 @@ const TestimonialsSlider = () => {
   };
 
   return (
-    <section className="testimonial-section">
-      <h2 className="testimonial-heading">Testimonials</h2>
+    <section className="max-w-[1200px] mx-auto my-2.5 px-5 text-center">
+      <h2 className="text-[2.2rem] font-semibold mb-8 text-[#0B2662] font-serif">Testimonials</h2>
       <Slider {...settings}>
         {testimonials.map((t, index) => (
-          <div className="testimonial-slide" key={index}>
-            <div className="testimonial-card">
-              <img src={t.image} alt={t.name} className="testimonial-image" />
-              <h3 className="testimonial-name">{t.name}</h3>
-              <p className="testimonial-role">{t.role}</p>
-              <p className="testimonial-role">{t.company}</p>
-              <p className="testimonial-message">“{t.message}”</p>
-            </div>
+          <div className="px-4 box-border" key={index}>
+            <Card className="bg-white rounded-xl shadow-md p-6 transition-all h-full border border-black hover:bg-[#89b6ea] hover:shadow-lg">
+              <CardContent className="p-0">
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="w-20 h-20 rounded-full object-cover mb-4 mx-auto border border-[#89b6ea]"
+                />
+                <h3 className="text-xl font-semibold text-black mb-1">{t.name}</h3>
+                <p className="text-sm text-gray-600 mb-4 font-semibold">{t.role}</p>
+                <p className="text-sm text-gray-600 mb-4 font-semibold">{t.company}</p>
+                <p className="text-[17px] text-gray-600 leading-6">"{t.message}"</p>
+              </CardContent>
+            </Card>
           </div>
         ))}
       </Slider>

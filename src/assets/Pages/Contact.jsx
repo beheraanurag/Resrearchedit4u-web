@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../style/style.css";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -32,13 +37,6 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitMessage("");
 
-    console.log("📧 Contact form submission started...");
-    console.log("👤 Name:", formData.name);
-    console.log("📧 Email:", formData.email);
-    console.log("📞 Phone:", formData.phone);
-    console.log("💬 Message length:", formData.message.length);
-    console.log("📎 File:", formData.file ? formData.file.name : "None");
-
     const data = new FormData();
     data.append("name", formData.name);
     data.append("email", formData.email);
@@ -50,165 +48,158 @@ const Contact = () => {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || 'https://resrearchedit4u-backend.onrender.com';
-      console.log("⏳ Sending data to server...");
-      console.log("🌐 API Endpoint:", `${apiUrl}/api/contact`);
-      
-      const startTime = Date.now();
       const response = await axios.post(`${apiUrl}/api/contact`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-      const endTime = Date.now();
-      const duration = endTime - startTime;
-      
-      console.log("✅ Email sent successfully!");
-      console.log("📊 Response:", response.data);
-      console.log("⏱️ Request duration:", duration + "ms");
-      
+
       setSubmitMessage("Message sent successfully!");
       setFormData({ name: "", email: "", phone: "", message: "", file: null });
-      
-      // Reset file input
+
       const fileInput = document.querySelector('input[type="file"]');
       if (fileInput) fileInput.value = "";
-      
+
     } catch (error) {
-      console.error("❌ Error sending message:");
-      console.error("🔍 Error details:", error.response?.data || error.message);
-      console.error("📊 Status:", error.response?.status);
-      console.error("🌐 URL:", error.config?.url);
-      
       setSubmitMessage("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
-      console.log("🏁 Contact form submission completed");
     }
   };
 
   return (
-    <div className="contact-container">
-      <div className="contact-header">
-        <h1>Get In Touch</h1>
-        <p>We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+    <div className="py-12 px-5 max-w-[1200px] mx-auto text-center">
+      <div className="mb-6">
+        <h1 className="text-3xl mb-6 text-[#1e3a8a] font-serif">Get In Touch</h1>
+        <p className="text-lg text-gray-600 mb-5">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
       </div>
 
-      <div className="contact-content">
-        <div className="contact-info">
-          <div className="info-item">
-            <h3>📧 Email</h3>
-            <p>info@researchedit.in</p>
-          </div>
-          <div className="info-item">
-            <h3>📞 Phone</h3>
-            <p>+91 8093778526</p>
-          </div>
-          <div className="info-item">
-            <h3>📍 Address</h3>
-            <p>Bhubaneswar, Odisha, India</p>
-          </div>
-          
-          {/* Map Section */}
-          <div className="map-section">
-            <h3>Find Us on Map</h3>
-            <div className="map-container">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.123456789!2d85.8245!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d2d2d2d2%3A0x2d2d2d2d2d2d2d2d!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                width="100%"
-                height="250"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="ResearchEdit4U Location"
-              ></iframe>
+      <div className="flex flex-wrap justify-center gap-10">
+        <Card className="flex-1 min-w-[300px] max-w-[500px] text-left">
+          <CardHeader>
+            <CardTitle>Contact Information</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <h3 className="text-xl mb-2.5 font-semibold">📧 Email</h3>
+              <p className="text-base text-gray-600">info@researchedit.in</p>
             </div>
-          </div>
-        </div>
-
-        <form className="contact-form" onSubmit={sendEmail}>
-          {submitMessage && (
-            <div className={`submit-message ${submitMessage.includes('successfully') ? 'success' : 'error'}`}>
-              {submitMessage}
+            <div>
+              <h3 className="text-xl mb-2.5 font-semibold">📞 Phone</h3>
+              <p className="text-base text-gray-600">+91 8093778526</p>
             </div>
-          )}
-
-          <div className="form-row">
-            <div className="form-group">
-              <label htmlFor="name">Your Name *</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
+            <div>
+              <h3 className="text-xl mb-2.5 font-semibold">📍 Address</h3>
+              <p className="text-base text-gray-600">Bhubaneswar, Odisha, India</p>
             </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address *</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
+
+            <div className="mt-5">
+              <h3 className="text-xl mb-4 font-semibold">Find Us on Map</h3>
+              <div className="rounded-lg overflow-hidden shadow-md border border-gray-200">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.123456789!2d85.8245!3d20.2961!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1909d2d2d2d2d2%3A0x2d2d2d2d2d2d2d2d!2sBhubaneswar%2C%20Odisha!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="ResearchEdit4U Location"
+                ></iframe>
+              </div>
             </div>
-          </div>
+          </CardContent>
+        </Card>
 
-          <div className="form-group">
-            <label htmlFor="phone">Phone Number</label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-            />
-          </div>
+        <Card className="flex-1 min-w-[350px] max-w-[600px] text-left">
+          <CardHeader>
+            <CardTitle>Send us a Message</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={sendEmail} className="space-y-4">
+              {submitMessage && (
+                <Alert variant={submitMessage.includes('successfully') ? 'default' : 'destructive'}>
+                  <AlertDescription>{submitMessage}</AlertDescription>
+                </Alert>
+              )}
 
-          <div className="form-group">
-            <label htmlFor="message">Message *</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="6"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Tell us about your research needs, questions, or how we can help you..."
-              required
-            />
-          </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Your Name *</Label>
+                  <Input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address *</Label>
+                  <Input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                  />
+                </div>
+              </div>
 
-          <div className="form-group">
-            <label htmlFor="file">Attach Files (Optional)</label>
-            <input
-              type="file"
-              id="file"
-              name="file"
-              onChange={handleFileChange}
-              accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
-            />
-            <small>You can attach research documents, drafts, or reference materials</small>
-          </div>
+              <div className="space-y-2">
+                <Label htmlFor="phone">Phone Number</Label>
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+              </div>
 
-          <button 
-            type="submit" 
-            disabled={isSubmitting} 
-            className={`submit-btn ${isSubmitting ? "loading" : ""}`}
-          >
-            {isSubmitting ? (
-              <>
-                <span className="spinner"></span>
-                Sending Email...
-              </>
-            ) : (
-              "Send Message"
-            )}
-          </button>
-        </form>
+              <div className="space-y-2">
+                <Label htmlFor="message">Message *</Label>
+                <Textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="Tell us about your research needs, questions, or how we can help you..."
+                  required
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="file">Attach Files (Optional)</Label>
+                <Input
+                  type="file"
+                  id="file"
+                  name="file"
+                  onChange={handleFileChange}
+                  accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
+                />
+                <p className="text-sm text-muted-foreground">You can attach research documents, drafts, or reference materials</p>
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full"
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="mr-2">Sending Email...</span>
+                  </>
+                ) : (
+                  "Send Message"
+                )}
+              </Button>
+            </form>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );

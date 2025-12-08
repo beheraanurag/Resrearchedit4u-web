@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "../style/style.css";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 
 const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
   const [formData, setFormData] = useState({
@@ -25,8 +31,7 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
       ...formData,
       [name]: value
     });
-    
-    // Clear error for this field when user starts typing
+
     if (errors[name]) {
       setErrors({
         ...errors,
@@ -42,7 +47,6 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
     });
   };
 
-  // Validation functions
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
@@ -56,7 +60,6 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
   const validateForm = () => {
     const newErrors = {};
 
-    // Required field validation
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     }
@@ -91,8 +94,7 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validate form before submission
+
     if (!validateForm()) {
       setSubmitMessage("Please fill in all required fields correctly.");
       return;
@@ -115,12 +117,12 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
           "Content-Type": "multipart/form-data",
         },
       });
-      
+
       setSubmitMessage("Service booking request sent successfully!");
       setTimeout(() => {
         onClose();
       }, 6000);
-      
+
     } catch (error) {
       console.error("Error sending booking request:", error);
       setSubmitMessage("Something went wrong. Please try again.");
@@ -130,148 +132,156 @@ const ServiceBookingForm = ({ service, serviceCategory, onClose }) => {
   };
 
   return (
-    <div className="service-booking-modal">
-      <div className="service-booking-content">
-        <div className="service-booking-header">
-          <h2>Book Service: {service}</h2>
-          <button className="close-btn" onClick={onClose}>×</button>
-        </div>
-        
+    <Dialog open={true} onOpenChange={onClose}>
+      <DialogContent className="max-w-[600px] max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle>Book Service: {service}</DialogTitle>
+        </DialogHeader>
+
         {submitMessage && (
-          <div className={`submit-message ${submitMessage.includes('successfully') ? 'success' : 'error'}`}>
-            {submitMessage}
-          </div>
+          <Alert variant={submitMessage.includes('successfully') ? 'default' : 'destructive'}>
+            <AlertDescription>{submitMessage}</AlertDescription>
+          </Alert>
         )}
 
-        <form onSubmit={handleSubmit} encType="multipart/form-data">
-          <div className="form-row">
-            <div className="form-group">
-              <label>Your Name *</label>
-              <input 
-                type="text" 
-                name="name" 
+        <form onSubmit={handleSubmit} encType="multipart/form-data" className="space-y-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">Your Name *</Label>
+              <Input
+                id="name"
+                type="text"
+                name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={errors.name ? 'error' : ''}
-                required 
+                className={errors.name ? 'border-destructive' : ''}
+                required
               />
-              {errors.name && <span className="error-message">{errors.name}</span>}
+              {errors.name && <span className="text-sm text-destructive">{errors.name}</span>}
             </div>
-            <div className="form-group">
-              <label>Email Address *</label>
-              <input 
-                type="email" 
-                name="email" 
+            <div className="space-y-2">
+              <Label htmlFor="email">Email Address *</Label>
+              <Input
+                id="email"
+                type="email"
+                name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={errors.email ? 'error' : ''}
-                required 
+                className={errors.email ? 'border-destructive' : ''}
+                required
               />
-              {errors.email && <span className="error-message">{errors.email}</span>}
+              {errors.email && <span className="text-sm text-destructive">{errors.email}</span>}
             </div>
           </div>
 
-          <div className="form-row">
-            <div className="form-group">
-              <label>Phone Number *</label>
-              <input 
-                type="tel" 
-                name="phone" 
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="phone">Phone Number *</Label>
+              <Input
+                id="phone"
+                type="tel"
+                name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                className={errors.phone ? 'error' : ''}
-                required 
+                className={errors.phone ? 'border-destructive' : ''}
+                required
               />
-              {errors.phone && <span className="error-message">{errors.phone}</span>}
+              {errors.phone && <span className="text-sm text-destructive">{errors.phone}</span>}
             </div>
-            <div className="form-group">
-              <label>Budget Range *</label>
-              <select 
-                name="budget" 
+            <div className="space-y-2">
+              <Label htmlFor="budget">Budget Range *</Label>
+              <Select
                 value={formData.budget}
-                onChange={handleChange}
-                className={errors.budget ? 'error' : ''}
+                onValueChange={(value) => setFormData({ ...formData, budget: value })}
               >
-                <option value="">Select Budget Range</option>
-                <option value="Under ₹5,000">Under ₹5,000</option>
-                <option value="₹5,000 - ₹10,000">₹5,000 - ₹10,000</option>
-                <option value="₹10,000 - ₹25,000">₹10,000 - ₹25,000</option>
-                <option value="₹25,000 - ₹50,000">₹25,000 - ₹50,000</option>
-                <option value="Above ₹50,000">Above ₹50,000</option>
-                <option value="To be discussed">To be discussed</option>
-              </select>
-              {errors.budget && <span className="error-message">{errors.budget}</span>}
+                <SelectTrigger className={`w-full ${errors.budget ? 'border-destructive' : ''}`}>
+                  <SelectValue placeholder="Select Budget Range" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Under ₹5,000">Under ₹5,000</SelectItem>
+                  <SelectItem value="₹5,000 - ₹10,000">₹5,000 - ₹10,000</SelectItem>
+                  <SelectItem value="₹10,000 - ₹25,000">₹10,000 - ₹25,000</SelectItem>
+                  <SelectItem value="₹25,000 - ₹50,000">₹25,000 - ₹50,000</SelectItem>
+                  <SelectItem value="Above ₹50,000">Above ₹50,000</SelectItem>
+                  <SelectItem value="To be discussed">To be discussed</SelectItem>
+                </SelectContent>
+              </Select>
+              {errors.budget && <span className="text-sm text-destructive">{errors.budget}</span>}
             </div>
           </div>
 
-          <div className="form-group">
-            <label>Timeline *</label>
-            <select 
-              name="timeline" 
+          <div className="space-y-2">
+            <Label htmlFor="timeline">Timeline *</Label>
+            <Select
               value={formData.timeline}
-              onChange={handleChange}
-              className={errors.timeline ? 'error' : ''}
-              required
+              onValueChange={(value) => setFormData({ ...formData, timeline: value })}
             >
-              <option value="">Select Timeline</option>
-              <option value="ASAP (Within 1 week)">ASAP (Within 1 week)</option>
-              <option value="1-2 weeks">1-2 weeks</option>
-              <option value="2-4 weeks">2-4 weeks</option>
-              <option value="1-2 months">1-2 months</option>
-              <option value="2+ months">2+ months</option>
-              <option value="Flexible">Flexible</option>
-            </select>
-            {errors.timeline && <span className="error-message">{errors.timeline}</span>}
+              <SelectTrigger className={`w-full ${errors.timeline ? 'border-destructive' : ''}`}>
+                <SelectValue placeholder="Select Timeline" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="ASAP (Within 1 week)">ASAP (Within 1 week)</SelectItem>
+                <SelectItem value="1-2 weeks">1-2 weeks</SelectItem>
+                <SelectItem value="2-4 weeks">2-4 weeks</SelectItem>
+                <SelectItem value="1-2 months">1-2 months</SelectItem>
+                <SelectItem value="2+ months">2+ months</SelectItem>
+                <SelectItem value="Flexible">Flexible</SelectItem>
+              </SelectContent>
+            </Select>
+            {errors.timeline && <span className="text-sm text-destructive">{errors.timeline}</span>}
           </div>
 
-          <div className="form-group">
-            <label>Service Requirements *</label>
-            <textarea 
-              name="requirements" 
-              rows="4" 
+          <div className="space-y-2">
+            <Label htmlFor="requirements">Service Requirements *</Label>
+            <Textarea
+              id="requirements"
+              name="requirements"
+              rows="4"
               value={formData.requirements}
               onChange={handleChange}
-              className={errors.requirements ? 'error' : ''}
+              className={errors.requirements ? 'border-destructive' : ''}
               placeholder="Please describe your specific requirements, research topic, current status, and any special instructions..."
-              required 
+              required
             />
-            {errors.requirements && <span className="error-message">{errors.requirements}</span>}
+            {errors.requirements && <span className="text-sm text-destructive">{errors.requirements}</span>}
           </div>
 
-          <div className="form-group">
-            <label>Additional Message</label>
-            <textarea 
-              name="message" 
-              rows="3" 
+          <div className="space-y-2">
+            <Label htmlFor="message">Additional Message</Label>
+            <Textarea
+              id="message"
+              name="message"
+              rows="3"
               value={formData.message}
               onChange={handleChange}
               placeholder="Any additional information or questions..."
             />
           </div>
 
-          <div className="form-group">
-            <label>Attach Files (Optional)</label>
-            <input 
-              type="file" 
-              name="file" 
+          <div className="space-y-2">
+            <Label htmlFor="file">Attach Files (Optional)</Label>
+            <Input
+              id="file"
+              type="file"
+              name="file"
               onChange={handleFileChange}
               accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png"
               multiple
             />
-            <small>You can attach research documents, drafts, or reference materials</small>
+            <p className="text-sm text-muted-foreground">You can attach research documents, drafts, or reference materials</p>
           </div>
 
-          <div className="form-actions">
-            <button type="button" onClick={onClose} className="cancel-btn">
+          <DialogFooter>
+            <Button type="button" variant="outline" onClick={onClose}>
               Cancel
-            </button>
-            <button type="submit" disabled={isSubmitting} className="submit-btn">
+            </Button>
+            <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? "Submitting..." : "Submit Booking Request"}
-            </button>
-          </div>
+            </Button>
+          </DialogFooter>
         </form>
-      </div>
-    </div>
+      </DialogContent>
+    </Dialog>
   );
 };
 

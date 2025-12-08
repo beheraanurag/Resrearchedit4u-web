@@ -1,83 +1,123 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import { FaHome, FaUser, FaCogs, FaBlog, FaEnvelope, FaInfoCircle, FaChevronDown } from "react-icons/fa";
-import "../style/style.css";
+import { FaHome, FaUser, FaCogs, FaBlog, FaEnvelope } from "react-icons/fa";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 import Logo from "../images/logo.webp";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [aboutDropdown, setAboutDropdown] = useState(false);
+
   const closeMenu = () => setMenuOpen(false);
 
+  const navLinks = [
+    { to: "/", label: "Home", icon: FaHome },
+    { to: "/about", label: "About", icon: FaUser },
+    { to: "/blogs", label: "Blogs", icon: FaBlog },
+    { to: "/contact", label: "Contact", icon: FaEnvelope },
+  ];
+
+  const serviceLinks = [
+    { to: "/Services", label: "Service Overview" },
+    { to: "/Research", label: "Research Planning" },
+    { to: "/Data", label: "Data Services" },
+    { to: "/Editorial", label: "Editorial Support" },
+    { to: "/Publication", label: "Publication Support" },
+    { to: "/Academic", label: "Academic Presentation" },
+  ];
 
   return (
-    <header className="header">
-      <div className="logo-container">
-        <img src={Logo} alt="Company Logo" className="logo" />
+    <header className="w-full px-4 md:px-8 py-2 bg-white flex items-center justify-between shadow-sm sticky top-0 z-50">
+      <div className="flex items-center">
+        <Link to="/">
+          <img src={Logo} alt="Company Logo" className="h-auto w-[80px] md:w-[100px]" />
+        </Link>
       </div>
 
-      <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-        {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-      </div>
-
-      <nav className={`navbar ${menuOpen ? "open" : ""}`}>
-        <ul className="nav-list">
-          <li>
-            <Link to="/" className="nav-link" onClick={() => setMenuOpen(false)}>
-              <FaHome className="nav-icon" /> Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/about" className="nav-link" onClick={() => setMenuOpen(false)}>
-              <FaUser className="nav-icon" /> About
-            </Link>
-          </li>
-
-
-          {/* Dropdown as a proper <li> */}
-          <li className="dropdown">
-            <button
-              className="dropdown-btn"
-              onClick={() => setAboutDropdown(!aboutDropdown)}
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex items-center gap-4 lg:gap-8">
+        {navLinks.map((link) => {
+          const Icon = link.icon;
+          return (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="flex items-center gap-2 text-base lg:text-lg font-bold text-gray-800 hover:text-primary transition-colors"
             >
-              <FaCogs className="nav-icon" /> Services 
-
-            </button>
-            <div className={`dropdown-content ${aboutDropdown ? "show" : ""}`}>
-              <Link to="/Services" className="dropdown-link" onClick={() => { closeMenu(); }}>
-                Service Overview
-              </Link>
-              <Link to="/Research" className="dropdown-link" onClick={() => { closeMenu(); }}>
-                Research Planning
-              </Link>
-              <Link to="/Data" className="dropdown-link" onClick={() => { closeMenu(); }}>
-                Data Services
-              </Link>
-              <Link to="/Editorial" className="dropdown-link" onClick={() => { closeMenu(); }}>
-                Editorial Support
-              </Link>
-              <Link to="/Publication" className="dropdown-link" onClick={() => { closeMenu(); }}>
-                Publication Support
-              </Link>
-              <Link to="/Academic" className="dropdown-link" onClick={() => { closeMenu(); }}>
-                Academic Presentation
-              </Link>
-            </div>
-          </li>
-
-          <li>
-            <Link to="/blogs" className="nav-link" onClick={() => setMenuOpen(false)}>
-              <FaBlog className="nav-icon" /> Blogs
+              <Icon className="text-base lg:text-lg" />
+              {link.label}
             </Link>
-          </li>
-          <li>
-            <Link to="/contact" className="nav-link" onClick={() => setMenuOpen(false)}>
-              <FaEnvelope className="nav-icon" /> Contact
-            </Link>
-          </li>
-        </ul>
+          );
+        })}
+
+        {/* Services Dropdown */}
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="flex items-center gap-2 text-base lg:text-lg font-bold text-gray-800 hover:text-primary">
+              <FaCogs className="text-base lg:text-lg" />
+              Services
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="w-56">
+            {serviceLinks.map((link) => (
+              <DropdownMenuItem key={link.to} asChild>
+                <Link to={link.to} className="cursor-pointer">
+                  {link.label}
+                </Link>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </nav>
+
+      {/* Mobile Navigation */}
+      <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
+        <SheetTrigger asChild className="md:hidden">
+          <Button variant="ghost" size="icon" className="md:hidden">
+            {menuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="right" className="w-[85vw] sm:w-[400px]">
+          <nav className="flex flex-col gap-4 mt-8">
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  onClick={closeMenu}
+                  className="flex items-center gap-3 text-lg font-bold text-gray-800 hover:text-primary transition-colors py-2"
+                >
+                  <Icon className="text-lg" />
+                  {link.label}
+                </Link>
+              );
+            })}
+
+            {/* Services Section in Mobile */}
+            <div className="flex flex-col gap-2 mt-2">
+              <div className="flex items-center gap-3 text-lg font-bold text-gray-800 py-2">
+                <FaCogs className="text-lg" />
+                Services
+              </div>
+              <div className="flex flex-col gap-1 pl-8">
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    to={link.to}
+                    onClick={closeMenu}
+                    className="text-base text-gray-600 hover:text-primary transition-colors py-2"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </nav>
+        </SheetContent>
+      </Sheet>
     </header>
   );
 };
