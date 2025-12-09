@@ -10,32 +10,6 @@ const Process = () => {
     return (
 
         <section className="process-section">
-            {/* <section className="subjects-wrapper">
-                <div className="subjects-container">
-                    <h2 className="subjects-title">Subjects We Handle</h2>
-                    <p className="subjects-desc">
-                        Comprehensive academic support across multiple disciplines
-                    </p>
-
-                    <div className="subjects-grid">
-                        {[
-                            "STEM",
-                            "Social Science",
-                            "Arts & Humanities",
-                            "Literature",
-                            "Business & Management",
-                            "Law",
-                            "Finance",
-                            "Education Studies",
-                        ].map((item, index) => (
-                            <div key={index} className="subject-card">
-                                <span className="circle-icon">📘</span>
-                                <p>{item}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section> */}
             {/* offer section */}
             <section className="offer">
                 <h1>Expert editing ensures clarity, precision, and success in global publications. Upto 50% OFF! 🎉 Book Now!</h1>

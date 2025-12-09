@@ -59,7 +59,7 @@ const Research = () => {
       <section className="trust-section">
         {/* <h2 className="trust-heading" style={{ color: "#1e3a8a", marginTop: "30px" }}>Who This is for</h2> */}
         <div className="pricing-head">
-          <h2 style={{ color: "#1e3a8a", marginTop: "30px" }}>Who This is for</h2>
+          <h2 style={{ color: "#0B2662", marginTop: "30px" }}>Who This is for</h2>
           <p>Designed to empower individuals seeking growth, skills, and meaningful opportunities.</p>
         </div>
         <div className="trust-cards" >

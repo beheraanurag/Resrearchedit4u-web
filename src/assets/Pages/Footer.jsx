@@ -59,7 +59,7 @@ const Footer = () => {
         <div className="footer-contact">
           <h3 className="footer-title">Contact Us</h3>
           <p><b>Email:</b>  <a href="mailto:info@researchedit4u.in">info@researchedit4u.in</a></p>
-          <p><b>Phone:</b> <a href="tel:+918093778526">+91 8093778526</a></p>
+          <p><b>Phone:</b> <a href="tel:+918093778526">+91-8093778526</a></p>
           <p> <b>Location:</b> <a href="Location">Bhubaneswar, Odisha 751020</a></p>
         </div>
 
