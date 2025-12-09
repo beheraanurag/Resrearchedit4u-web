@@ -9,14 +9,30 @@ import Risk from '../images/blueprint.webp';
 import { FaCheck, FaWhatsapp } from "react-icons/fa";
 import { servicesData, faqs, packages } from "../content/researchdata"
 import { Link } from "react-router-dom";
+import ServiceBookingForm from "./ServiceBookingForm";
 
 
 const Research = () => {
   const [activeTab, setActiveTab] = useState("Research Planning");
   const [openIndex, setOpenIndex] = useState(null);
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedServiceCategory, setSelectedServiceCategory] = useState("");
 
   const toggleFAQ = (index) => {
     setOpenIndex(index === openIndex ? null : index);
+  };
+
+  const handleBookService = (service, serviceCategory) => {
+    setSelectedService(service);
+    setSelectedServiceCategory(serviceCategory);
+    setShowBookingForm(true);
+  };
+
+  const closeBookingForm = () => {
+    setShowBookingForm(false);
+    setSelectedService("");
+    setSelectedServiceCategory("");
   };
 
 
@@ -104,14 +120,12 @@ const Research = () => {
             </ul>
             <p className="price">Starts at only {service.price}</p>
             <div className="btn-group">
-              <a
-                href={service.bookLink}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button 
+                className="book" 
+                onClick={() => handleBookService(service.title, activeTab)}
               >
-
-                <button className="book">Book Now</button>
-              </a>
+                Book Now
+              </button>
               <a href={service.pdfLink} download>
                 <button className="sample">Download Sample</button>
               </a>
@@ -252,6 +266,15 @@ const Research = () => {
           Book a Free Consultation / Submit Your Research Idea
         </a>
       </section>
+
+      {/* Service Booking Form Modal */}
+      {showBookingForm && (
+        <ServiceBookingForm
+          service={selectedService}
+          serviceCategory={selectedServiceCategory}
+          onClose={closeBookingForm}
+        />
+      )}
 
     </div >
 

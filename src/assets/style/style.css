@@ -2899,6 +2899,11 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
+.contact-header h1 {
+    font-family: 'Times New Roman', Times, serif;
+    color: #1e3a8a;
+}
+
 
 .contact-header {
     font-size: 1.2rem;
@@ -2997,6 +3002,34 @@ body {
     text-decoration: underline;
 }
 
+/* Map Section within Contact Info */
+.contact-info .map-section {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.contact-info .map-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.contact-info .map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e9ecef;
+}
+
+.contact-info .map-container iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+    display: block;
+}
+
 .contact-map iframe {
     width: 100%;
     height: 200px;
@@ -3054,8 +3087,9 @@ body {
         padding: 10px;
     }
 
-    .contact-map iframe {
-        height: 250px;
+    .contact-map iframe,
+    .contact-info .map-container iframe {
+        height: 200px;
     }
 }
 
@@ -3804,18 +3838,8 @@ body {
         flex-direction: column
     }
 
-    .mimic-featured-img img {
-        width: 100%;
-        height: 220px
-    }
-}
-
-@media (max-width: 480px) {
-    .mimic-title {
-        font-size: 20px
-    }
-
-    .mimic-featured-img img {
-        height: 180px
+    .mdx-img {
+        max-width: 100%;
+        /* full width on small screens */
     }
 }

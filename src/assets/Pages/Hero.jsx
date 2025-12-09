@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import '../style/style.css';
 import slidesData from "../content/herodata";
+import ServiceBookingForm from "./ServiceBookingForm";
 
 const HeroSlider = () => {
+  const [showBookingForm, setShowBookingForm] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedServiceCategory, setSelectedServiceCategory] = useState("");
+
+  const handleBookService = (service, serviceCategory) => {
+    setSelectedService(service);
+    setSelectedServiceCategory(serviceCategory);
+    setShowBookingForm(true);
+  };
+
+  const closeBookingForm = () => {
+    setShowBookingForm(false);
+    setSelectedService("");
+    setSelectedServiceCategory("");
+  };
+
   return (
     <Swiper
       spaceBetween={30}
