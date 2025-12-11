@@ -96,11 +96,15 @@ const ProjectEnquiryForm = ({ onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Clear previous errors
+    setErrors([]);
+
     if (!validateForm()) {
       return;
     }
 
     setIsSubmitting(true);
+    setShowThankYou(false);
 
     const data = new FormData();
     data.append("fullName", formData.fullName);
@@ -115,12 +119,39 @@ const ProjectEnquiryForm = ({ onClose }) => {
     }
 
     try {
-      const apiUrl = import.meta.env.VITE_API_URL || 'https://resrearchedit4u-backend.onrender.com';
-      await axios.post(`${apiUrl}/api/project-enquiry`, data, {
+      // Use Vercel API route (same pattern as Contact page)
+      // For Vercel: use relative path /api/project-enquiry (works on same domain)
+      // For local dev or custom backend: use VITE_API_URL
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+      const endpoint = apiUrl ? `${apiUrl}/api/project-enquiry` : '/api/project-enquiry';
+
+      console.log("⏳ Submitting project enquiry form...");
+      console.log("🌐 API Endpoint:", endpoint);
+      console.log("📋 Form data:", {
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        timeline: formData.timeline,
+        services: formData.services,
+        hasFile: !!formData.fileUpload
+      });
+
+      const startTime = Date.now();
+      const response = await axios.post(endpoint, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
+        timeout: 30000, // 30 second timeout
       });
+      const endTime = Date.now();
+      const duration = endTime - startTime;
+
+      console.log("✅ Project enquiry submitted successfully!");
+      console.log("📊 Response:", response.data);
+      console.log("⏱️ Request duration:", duration + "ms");
+
+      // Clear any previous errors
+      setErrors([]);
 
       // Reset form
       setFormData({
@@ -151,10 +182,56 @@ const ProjectEnquiryForm = ({ onClose }) => {
       }
 
     } catch (error) {
-      console.error("Error submitting form:", error);
-      setErrors(["Something went wrong. Please try again."]);
+      console.error("❌ Error submitting project enquiry:");
+      console.error("🔍 Error details:", error.response?.data || error.message);
+      console.error("📊 Status:", error.response?.status);
+      console.error("🌐 URL:", error.config?.url);
+
+      // Extract meaningful error message
+      let errorMessage = "Something went wrong. Please try again.";
+
+      if (error.code === 'ECONNABORTED') {
+        errorMessage = "Request timed out. The server is taking too long to respond. Please try again.";
+      } else if (error.response) {
+        // Server responded with error status
+        const status = error.response.status;
+        const serverMessage = error.response.data?.message || error.response.data?.error;
+
+        if (status === 400) {
+          errorMessage = serverMessage || "Please check your form data and try again.";
+        } else if (status === 500) {
+          errorMessage = serverMessage || "Server error. Please try again later or contact support.";
+        } else if (status === 404) {
+          errorMessage = "API endpoint not found. Please check your configuration.";
+        } else if (status === 403) {
+          errorMessage = "Access denied. Please check your permissions.";
+        } else if (status === 0 || status >= 500) {
+          errorMessage = serverMessage || `Server error (${status}). Please try again later.`;
+        } else {
+          errorMessage = serverMessage || `Error ${status}: Please try again.`;
+        }
+      } else if (error.request) {
+        // Request was made but no response received
+        if (error.message && error.message.includes("timeout")) {
+          errorMessage = "Request timed out. Please check your internet connection and try again.";
+        } else {
+          errorMessage = "Unable to connect to the server. Please check your internet connection and try again.";
+        }
+      } else if (error.message) {
+        // Error setting up the request
+        if (error.message.includes("Network Error") || error.message.includes("Failed to fetch")) {
+          errorMessage = "Network error. Please check your internet connection.";
+        } else if (error.message.includes("timeout")) {
+          errorMessage = "Request timed out. Please try again.";
+        } else {
+          errorMessage = error.message;
+        }
+      }
+
+      setErrors([errorMessage]);
     } finally {
       setIsSubmitting(false);
+      console.log("🏁 Project enquiry form submission completed");
     }
   };
 
